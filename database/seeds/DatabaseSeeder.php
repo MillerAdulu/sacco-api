@@ -29,5 +29,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(MemberSeeder::class);
 
+        $this->call(AddressDetailSeeder::class);
+
     }
 }

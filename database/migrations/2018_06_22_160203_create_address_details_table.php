@@ -30,7 +30,7 @@ class CreateAddressDetailsTable extends Migration
             $table->string('street', 50)->nullable();
             $table->string('building_name')->nullable();
             $table->string('floor', 2)->nullable();
-            $table->string('house_number', 3)->nullable();
+            $table->string('house_number', 2)->nullable();
             $table->timestamps();
 
 

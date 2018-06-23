@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class MemberSeeder extends Seeder
+class AddressDetailSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class MemberSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Member', 250)->create();
+        factory('App\AddressDetail', 250)->create();
     }
 }

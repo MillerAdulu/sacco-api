@@ -35,5 +35,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(AddressDetailSeeder::class);
 
+        $this->call(BusinessDetailSeeder::class);
+
     }
 }

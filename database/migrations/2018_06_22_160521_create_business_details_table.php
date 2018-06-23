@@ -19,8 +19,8 @@ class CreateBusinessDetailsTable extends Migration
             $table->integer('member_id');
 
             $table->string('business_name', 100);
-            $table->integer('address_detail_id');
             $table->integer('business_nature_id');
+            $table->integer('address_detail_id')->nullable();
             $table->decimal('approximate_monthly_income', 8, 2)->nullable();
 
             $table->timestamps();

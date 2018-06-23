@@ -24,7 +24,7 @@ class CreateEmployersTable extends Migration
             $table->timestamps();
 
 
-            $table->foreign('address_detail_id')->references('address_detail_id')->on('address_details');
+            $table->foreign('address_detail_id')->references('employer_id')->on('address_details');
             $table->foreign('business_nature_id')->references('business_nature_id')->on('business_natures');
         });
     }

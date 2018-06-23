@@ -31,6 +31,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(EmployerSeeder::class);
 
+        $this->call(EmploymentDetailSeeder::class);
+
         $this->call(AddressDetailSeeder::class);
 
     }

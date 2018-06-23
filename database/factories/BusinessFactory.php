@@ -5,7 +5,7 @@ use App\BusinessNature;
 
 use Faker\Generator as Faker;
 
-$factory->define(App\BusinessDetail::class, function (Faker $faker) {
+$factory->define(App\Business::class, function (Faker $faker) {
 
     $members = Member::all()->pluck('member_id')->toArray();
     $business_natures = BusinessNature::all()->pluck('business_nature_id')->toArray();

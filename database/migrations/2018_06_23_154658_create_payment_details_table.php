@@ -18,7 +18,8 @@ class CreatePaymentDetailsTable extends Migration
             $table->increments('payment_details_id');
 
             $table->integer('payment_method_id');
-            $table->integer('member_id');
+            $table->integer('member_id')->nullable();
+            $table->integer('business_id')->nullable();
 
             $table->string('bank_account_number', 60)->nullable();
             $table->string('card_number', 30)->nullable();
@@ -28,6 +29,7 @@ class CreatePaymentDetailsTable extends Migration
 
 
             $table->foreign('payment_method_id')->references('payment_method_id')->on('payment_methods');
+            $table->foreign('business_id')->references('business_id')->on('businesses');
         });
     }
 

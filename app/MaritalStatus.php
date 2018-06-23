@@ -7,4 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class MaritalStatus extends Model
 {
     protected $primaryKey = 'marital_status_id';
+
+    public function member() {
+
+        return $this->belongsTo(Member::class, 'marital_status_id', 'marital_status_id');
+
+    }
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class BusinessDetailSeeder extends Seeder
+class BusinessSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class BusinessDetailSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\BusinessDetail', 150)->create();
+        factory('App\Business', 150)->create();
     }
 }

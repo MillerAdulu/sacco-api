@@ -19,12 +19,9 @@ class CreateEmployersTable extends Migration
 
             $table->string('employer_name', 100);
             $table->integer('business_nature_id');
-            $table->integer('address_detail_id')->nullable();
 
             $table->timestamps();
 
-
-            $table->foreign('address_detail_id')->references('employer_id')->on('address_details');
             $table->foreign('business_nature_id')->references('business_nature_id')->on('business_natures');
         });
     }

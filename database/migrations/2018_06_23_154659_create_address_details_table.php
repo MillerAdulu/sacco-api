@@ -17,9 +17,9 @@ class CreateAddressDetailsTable extends Migration
 
             $table->increments('address_detail_id');
 
-            $table->integer('member_id')->unique()->nullable();
-            $table->integer('business_id')->unique()->nullable();
-            $table->integer('employer_id')->unique()->nullable();
+            $table->integer('member_id')->nullable();
+            $table->integer('business_id')->nullable();
+            $table->integer('employer_id')->nullable();
 
             $table->integer('county_id');
             $table->integer('constituency_id');
@@ -34,6 +34,9 @@ class CreateAddressDetailsTable extends Migration
             $table->timestamps();
 
 
+            $table->foreign('member_id')->references('member_id')->on('members');
+            $table->foreign('employer_id')->references('employer_id')->on('employers');
+            $table->foreign('business_id')->references('business_id')->on('businesses');
             $table->foreign('county_id')->references('county_id')->on('counties');
             $table->foreign('constituency_id')->references('constituency_id')->on('constituencies');
             $table->foreign('locality_id')->references('locality_id')->on('localities');

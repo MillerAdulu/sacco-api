@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(BusinessNatureSeeder::class);
 
+        $this->call(MaritalStatusSeeder::class);
+
 
     }
 }

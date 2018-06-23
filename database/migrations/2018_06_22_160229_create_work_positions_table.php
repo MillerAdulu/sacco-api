@@ -17,7 +17,7 @@ class CreateWorkPositionsTable extends Migration
 
             $table->increments('work_position_id');
 
-            $table->string('work_position', 30);
+            $table->string('work_position', 80);
 
             $table->timestamps();
 

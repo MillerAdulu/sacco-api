@@ -17,7 +17,7 @@ class CreateJobTitlesTable extends Migration
 
             $table->increments('job_title_id');
 
-            $table->string('job_title', 80);
+            $table->string('job_title', 150);
 
             $table->timestamps();
 

@@ -10,7 +10,11 @@ class MaritalStatus extends Model
 
     public function member() {
 
-        return $this->belongsTo(Member::class, 'marital_status_id', 'marital_status_id');
+        return $this->belongsToMany (
+            Member::class,
+            'marital_status_id',
+            'marital_status_id'
+        );
 
     }
 }

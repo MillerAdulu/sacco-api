@@ -31,21 +31,21 @@ class CreateMembersTable extends Migration
             $table->string('kra_pin')->nullable();
             $table->text('kra_certificate')->nullable();
 
-            $table->integer('address_detail_id');
+            $table->integer('address_detail_id')->nullable();
 
             $table->boolean('gender');
             $table->text('passport_photo')->nullable();
             $table->integer('marital_status_id');
 
             $table->decimal('proposed_monthly_contribution', 8, 2);
-            $table->integer('payment_details_id');
+            $table->integer('payment_details_id')->nullable();
             $table->integer('employment_details_id')->nullable();
             $table->integer('business_details_id')->nullable();
 
             $table->timestamps();
 
             $table->foreign('marital_status_id')->references('marital_status_id')->on('marital_statuses');
-            $table->foreign('address_detail_id')->references('address_detail_id')->on('address_details');
+            $table->foreign('address_detail_id')->references('member_id')->on('address_details');
             $table->foreign('employment_details_id')->references('employment_details_id')->on('employment_details');
             $table->foreign('business_details_id')->references('business_details_id')->on('business_details');
             $table->foreign('payment_details_id')->references('payment_details_id')->on('payment_details');

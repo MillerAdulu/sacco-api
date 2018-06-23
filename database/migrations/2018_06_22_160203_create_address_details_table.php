@@ -17,6 +17,9 @@ class CreateAddressDetailsTable extends Migration
 
             $table->increments('address_detail_id');
 
+            $table->integer('member_id')->unique()->nullable();
+            $table->integer('business_id')->unique()->nullable();
+
             $table->integer('county_id');
             $table->integer('constituency_id');
             $table->integer('locality_id');

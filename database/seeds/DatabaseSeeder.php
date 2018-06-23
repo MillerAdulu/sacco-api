@@ -18,5 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call(LocalitySeeder::class);
 
         $this->call(PostOfficeSeeder::class);
+
+        $this->call(BusinessNatureSeeder::class);
+
+
     }
 }

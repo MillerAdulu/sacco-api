@@ -14,6 +14,16 @@ class PostOfficeResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+
+            'postOfficeId' => $this->post_office_id,
+
+            'postOfficeCode' => $this->post_office_code,
+            'postOfficeName' => $this->post_office_name,
+
+            'createdAt' => (string) $this->created_at,
+            'updatedAt' => (string) $this->updated_at
+
+        ];
     }
 }

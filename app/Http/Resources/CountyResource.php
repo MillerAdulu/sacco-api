@@ -14,6 +14,16 @@ class CountyResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+
+            'countyId' => $this->county_id,
+
+            'countyCode' => $this->county_code,
+            'countyName' => $this->county_name,
+
+            'createdAt' => (string) $this->created_at,
+            'updatedAt' => (string) $this->updated_at
+
+        ];
     }
 }

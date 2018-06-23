@@ -18,6 +18,7 @@ class CreateEmploymentDetailsTable extends Migration
             $table->increments('employment_details_id');
 
             $table->integer('employer_id');
+            $table->integer('member_id');
             $table->integer('work_position_id');
             $table->string('work_station');
             $table->date('commencement_date');
@@ -30,6 +31,7 @@ class CreateEmploymentDetailsTable extends Migration
 
 
             $table->foreign('employer_id')->references('employer_id')->on('employers');
+            $table->foreign('member_id')->references('member_id')->on('members');
             $table->foreign('work_position_id')->references('work_position_id')->on('work_positions');
         });
     }

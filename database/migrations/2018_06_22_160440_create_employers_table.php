@@ -18,8 +18,8 @@ class CreateEmployersTable extends Migration
             $table->increments('employer_id');
 
             $table->string('employer_name', 100);
-            $table->integer('address_detail_id');
             $table->integer('business_nature_id');
+            $table->integer('address_detail_id')->nullable();
 
             $table->timestamps();
 

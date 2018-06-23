@@ -17,12 +17,12 @@ class CreateLocalitiesTable extends Migration
 
             $table->increments('locality_id');
 
-            $table->integer('district_id');
+            $table->integer('constituency_id');
             $table->string('locality_name', 30);
 
             $table->timestamps();
 
-            $table->foreign('district_id')->references('district_id')->on('districts');
+            $table->foreign('constituency_id')->references('constituency_id')->on('constituencies');
 
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDistrictsTable extends Migration
+class CreateConstituenciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateDistrictsTable extends Migration
      */
     public function up()
     {
-        Schema::create('districts', function (Blueprint $table) {
+        Schema::create('constituencies', function (Blueprint $table) {
 
-            $table->increments('district_id');
+            $table->increments('constituency_id');
 
             $table->integer('county_id');
-            $table->string('district_name', 20);
+            $table->string('constituency_name', 20);
 
             $table->timestamps();
 
@@ -34,6 +34,6 @@ class CreateDistrictsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('districts');
+        Schema::dropIfExists('constituencies');
     }
 }

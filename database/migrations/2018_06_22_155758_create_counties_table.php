@@ -17,7 +17,7 @@ class CreateCountiesTable extends Migration
 
             $table->increments('county_id');
 
-            $table->string('county_code', 3);
+            $table->string('county_code', 3)->unique();
             $table->string('county_name', 20);
 
             $table->timestamps();

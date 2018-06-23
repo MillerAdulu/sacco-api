@@ -18,7 +18,7 @@ class CreateAddressDetailsTable extends Migration
             $table->increments('address_detail_id');
 
             $table->integer('county_id');
-            $table->integer('district_id');
+            $table->integer('constituency_id');
             $table->integer('locality_id');
             $table->integer('postal_address')->nullable();
             $table->integer('post_office_id')->nullable();
@@ -31,7 +31,7 @@ class CreateAddressDetailsTable extends Migration
 
 
             $table->foreign('county_id')->references('county_id')->on('counties');
-            $table->foreign('district_id')->references('district_id')->on('districts');
+            $table->foreign('constituency_id')->references('constituency_id')->on('constituencies');
             $table->foreign('locality_id')->references('locality_id')->on('localities');
             $table->foreign('post_office_id')->references('post_office_id')->on('post_offices');
 

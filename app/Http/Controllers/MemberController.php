@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\MemberCollection;
+use App\Http\Resources\MemberResource;
+use App\Member;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
@@ -9,11 +12,15 @@ class MemberController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\MemberCollection
      */
     public function index()
     {
-        //
+        return new MemberCollection(
+          MemberResource::collection(
+            Member::all()
+          )
+        );
     }
 
     /**

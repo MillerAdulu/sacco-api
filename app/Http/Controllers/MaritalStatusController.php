@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\MaritalStatusCollection;
+use App\Http\Resources\MaritalStatusResource;
+use App\MaritalStatus;
 use Illuminate\Http\Request;
 
 class MaritalStatusController extends Controller
@@ -9,11 +12,15 @@ class MaritalStatusController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\MaritalStatusCollection
      */
     public function index()
     {
-        //
+        return new MaritalStatusCollection(
+          MaritalStatusResource::collection(
+            MaritalStatus::all()
+          )
+        );
     }
 
     /**

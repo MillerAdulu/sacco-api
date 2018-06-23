@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\AddressDetail;
+use App\Http\Resources\AddressDetailCollection;
+use App\Http\Resources\AddressDetailResource;
 use Illuminate\Http\Request;
 
 class AddressDetailController extends Controller
@@ -9,11 +12,15 @@ class AddressDetailController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\AddressDetailCollection
      */
     public function index()
     {
-        //
+        return new AddressDetailCollection(
+          AddressDetailResource::collection(
+            AddressDetail::all()
+          )
+        );
     }
 
     /**

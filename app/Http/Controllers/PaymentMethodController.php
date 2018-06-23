@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PaymentMethodCollection;
+use App\Http\Resources\PaymentMethodResource;
+use App\PaymentMethod;
 use Illuminate\Http\Request;
 
 class PaymentMethodController extends Controller
@@ -9,11 +12,15 @@ class PaymentMethodController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\PaymentMethodCollection
      */
     public function index()
     {
-        //
+        return new PaymentMethodCollection(
+          PaymentMethodResource::collection(
+            PaymentMethod::all()
+          )
+        );
     }
 
     /**

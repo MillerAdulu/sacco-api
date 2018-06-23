@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\JobTitleCollection;
+use App\Http\Resources\JobTitleResource;
+use App\JobTitle;
 use Illuminate\Http\Request;
 
 class JobTitleController extends Controller
@@ -9,11 +12,15 @@ class JobTitleController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\JobTitleCollection
      */
     public function index()
     {
-        //
+        return new JobTitleCollection(
+          JobTitleResource::collection(
+            JobTitle::all()
+          )
+        );
     }
 
     /**

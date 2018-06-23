@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\LocalityCollection;
+use App\Http\Resources\LocalityResource;
+use App\Locality;
 use Illuminate\Http\Request;
 
 class LocalityController extends Controller
@@ -9,11 +12,15 @@ class LocalityController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\LocalityCollection
      */
     public function index()
     {
-        //
+        return new LocalityCollection(
+          LocalityResource::collection(
+            Locality::all()
+          )
+        );
     }
 
     /**

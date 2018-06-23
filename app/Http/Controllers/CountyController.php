@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\County;
+use App\Http\Resources\CountyCollection;
+use App\Http\Resources\CountyResource;
 use Illuminate\Http\Request;
 
 class CountyController extends Controller
@@ -9,11 +12,15 @@ class CountyController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\CountyCollection
      */
     public function index()
     {
-        //
+        return new CountyCollection(
+          CountyResource::collection(
+            County::all()
+          )
+        );
     }
 
     /**

@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Constituency;
+use App\Http\Resources\ConstituencyCollection;
+use App\Http\Resources\ConstituencyResource;
 use Illuminate\Http\Request;
 
-class DistrictController extends Controller
+class ConstituencyController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\ConstituencyCollection
      */
     public function index()
     {
-        //
+        return new ConstituencyCollection(
+          ConstituencyResource::collection(
+            Constituency::all()
+          )
+        );
     }
 
     /**

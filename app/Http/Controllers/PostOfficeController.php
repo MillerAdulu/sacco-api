@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PostOfficeCollection;
+use App\Http\Resources\PostOfficeResource;
+use App\PostOffice;
 use Illuminate\Http\Request;
 
 class PostOfficeController extends Controller
@@ -9,11 +12,15 @@ class PostOfficeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\PostOfficeCollection
      */
     public function index()
     {
-        //
+        return new PostOfficeCollection(
+          PostOfficeResource::collection(
+            PostOffice::all()
+          )
+        );
     }
 
     /**

@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Business;
+use App\Http\Resources\BusinessCollection;
+use App\Http\Resources\BusinessResource;
 use Illuminate\Http\Request;
 
-class BusinessDetailController extends Controller
+class BusinessController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\BusinessCollection
      */
     public function index()
     {
-        //
+        return new BusinessCollection(
+          BusinessResource::collection(
+            Business::all()
+          )
+        );
     }
 
     /**

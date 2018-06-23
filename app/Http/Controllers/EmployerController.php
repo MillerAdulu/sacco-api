@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Employer;
+use App\Http\Resources\EmployerCollection;
+use App\Http\Resources\EmployerResource;
 use Illuminate\Http\Request;
 
 class EmployerController extends Controller
@@ -9,11 +12,15 @@ class EmployerController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\EmployerCollection
      */
     public function index()
     {
-        //
+        return new EmployerCollection(
+          EmployerResource::collection(
+            Employer::all()
+          )
+        );
     }
 
     /**

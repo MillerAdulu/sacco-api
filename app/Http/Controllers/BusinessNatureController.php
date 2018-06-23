@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\BusinessNature;
+use App\Http\Resources\BusinessNatureCollection;
+use App\Http\Resources\BusinessNatureResource;
 use Illuminate\Http\Request;
 
 class BusinessNatureController extends Controller
@@ -9,11 +12,15 @@ class BusinessNatureController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\BusinessNatureCollection
      */
     public function index()
     {
-        //
+        return new BusinessNatureCollection(
+          BusinessNatureResource::collection(
+            BusinessNature::all()
+          )
+        );
     }
 
     /**

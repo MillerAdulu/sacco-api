@@ -35,9 +35,9 @@ class CreateMembersTable extends Migration
 
             $table->boolean('gender');
             $table->text('passport_photo')->nullable();
-            $table->integer('marital_status_id');
+            $table->integer('marital_status_id')->nullable();
 
-            $table->decimal('proposed_monthly_contribution', 8, 2);
+            $table->decimal('proposed_monthly_contribution', 8, 2)->nullable();
             $table->integer('payment_details_id')->nullable();
             $table->integer('employment_details_id')->nullable();
             $table->integer('business_details_id')->nullable();

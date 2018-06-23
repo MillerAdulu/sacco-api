@@ -27,5 +27,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(WorkPositionSeeder::class);
 
+        $this->call(MemberSeeder::class);
+
     }
 }

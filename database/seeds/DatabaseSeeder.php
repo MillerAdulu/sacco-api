@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(MaritalStatusSeeder::class);
 
+        $this->call(PaymentMethodSeeder::class);
 
     }
 }

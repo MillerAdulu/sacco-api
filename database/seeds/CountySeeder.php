@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ConstituencySeeder extends Seeder
+class CountySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class ConstituencySeeder extends Seeder
     public function run()
     {
 
-        factory('App\Constituency', 250)->create();
+        factory('App\County', 47)->create();
 
     }
 }

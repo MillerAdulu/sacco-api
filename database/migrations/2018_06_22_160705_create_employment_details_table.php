@@ -31,7 +31,6 @@ class CreateEmploymentDetailsTable extends Migration
 
 
             $table->foreign('employer_id')->references('employer_id')->on('employers');
-            $table->foreign('member_id')->references('member_id')->on('members');
             $table->foreign('work_position_id')->references('work_position_id')->on('work_positions');
         });
     }

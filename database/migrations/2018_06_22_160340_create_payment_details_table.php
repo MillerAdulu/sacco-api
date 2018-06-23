@@ -28,7 +28,6 @@ class CreatePaymentDetailsTable extends Migration
 
 
             $table->foreign('payment_method_id')->references('payment_method_id')->on('payment_methods');
-            $table->foreign('member_id')->references('member_id')->on('members');
         });
     }
 

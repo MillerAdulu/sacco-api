@@ -28,7 +28,6 @@ class CreateBusinessDetailsTable extends Migration
 
             $table->foreign('address_detail_id')->references('business_id')->on('address_details');
             $table->foreign('business_nature_id')->references('business_nature_id')->on('business_natures');
-            $table->foreign('member_id')->references('member_id')->on('members');
 
         });
     }

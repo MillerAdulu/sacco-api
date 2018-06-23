@@ -45,10 +45,10 @@ class CreateMembersTable extends Migration
             $table->timestamps();
 
             $table->foreign('marital_status_id')->references('marital_status_id')->on('marital_statuses');
-            $table->foreign('address_detail_id')->references('member_id')->on('address_details');
-            $table->foreign('employment_details_id')->references('member_id')->on('employment_details');
-            $table->foreign('business_details_id')->references('member_id')->on('business_details');
-            $table->foreign('payment_details_id')->references('member_id')->on('payment_details');
+            $table->foreign('address_detail_id')->references('address_detail_id')->on('address_details');
+            $table->foreign('employment_details_id')->references('employment_details_id')->on('employment_details');
+            $table->foreign('business_details_id')->references('business_details_id')->on('business_details');
+            $table->foreign('payment_details_id')->references('payment_details_id')->on('payment_details');
 
         });
     }

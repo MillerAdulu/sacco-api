@@ -1,5 +1,14 @@
 # SEDC SACCO API
 
+## Live Version
+
+View a live version of the api here:
+[Members] (https://sedcapi.herokuapp.com/api/members)
+[Address Details] (https://sedcapi.herokuapp.com/api/addressdetails)
+
+**Refer to the bottom of this document for similarly formatted api end points**
+
+
 ## Dependencies
 
 * Laravel - 5.6

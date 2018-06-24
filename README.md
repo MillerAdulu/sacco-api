@@ -16,16 +16,16 @@
 
 ## View Results
 
-Address Details: *api/addressdetails*
-Businesses: *api/businesses*
-Business Natures: *api/businessnatures*
-Counties: *api/counties*
-Constituencies: *api/constituencies*
-Employers: *api/employers*
-Job Titles: *api/jobtitles*
-Localities: *api/localities*
-Marital Statuses: *api/maritalstatuses*
-Members: *api/members*
-Payment Details: *paymentdetails*
-Payment Methods: *api/paymentmethods*
-Post Offices: *api/postoffices*
+* Address Details: *api/addressdetails*
+* Businesses: *api/businesses*
+* Business Natures: *api/businessnatures*
+* Counties: *api/counties*
+* Constituencies: *api/constituencies*
+* Employers: *api/employers*
+* Job Titles: *api/jobtitles*
+* Localities: *api/localities*
+* Marital Statuses: *api/maritalstatuses*
+* Members: *api/members*
+* Payment Details: *paymentdetails*
+* Payment Methods: *api/paymentmethods*
+* Post Offices: *api/postoffices*

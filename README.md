@@ -13,3 +13,19 @@
 4. Run **php artisan config:cache**
 5. Run **php artisan db:seed**
 6. Go live with **php artisan serve**
+
+## View Results
+
+Address Details: *api/addressdetails*
+Businesses: *api/businesses*
+Business Natures: *api/businessnatures*
+Counties: *api/counties*
+Constituencies: *api/constituencies*
+Employers: *api/employers*
+Job Titles: *api/jobtitles*
+Localities: *api/localities*
+Marital Statuses: *api/maritalstatuses*
+Members: *api/members*
+Payment Details: *paymentdetails*
+Payment Methods: *api/paymentmethods*
+Post Offices: *api/postoffices*

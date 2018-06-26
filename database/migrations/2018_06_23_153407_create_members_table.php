@@ -17,7 +17,7 @@ class CreateMembersTable extends Migration
 
             $table->increments('member_id');
 
-            $table->string('identification_number', 100);
+            $table->string('identification_number', 100)->unique();
             $table->string('first_name', 30);
             $table->string('last_name', 30);
             $table->string('other_name')->nullable();

@@ -27,11 +27,37 @@ class MemberController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\MemberResource
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+          'identificationNumber' => 'required|numeric',
+          'firstName' => 'required|alpha',
+          'lastName' => 'required|alpha',
+          'phoneNumber' => 'required|numeric',
+          'proposedMonthlyContribution' => 'required|numeric',
+          'dateOfBirth' => 'required|date',
+          'email' => 'email',
+          'otherName' => 'alpha'
+        ]);
+        
+        
+        $member = new Member();
+        
+        $member->identification_number = $request['identificationNumber'];
+        $member->first_name = $request['firstName'];
+        $member->last_name = $request['lastName'];
+        $member->other_name = $request['otherName'];
+        $member->phone_number = $request['phoneNumber'];
+        $member->proposed_monthly_contribution = $request['proposedMonthlyContribution'];
+        $member->date_of_birth = $request['dateOfBirth'];
+        
+        $member->save();
+      
+      return new MemberResource(
+        $member
+      );
     }
 
     /**

@@ -26,14 +26,14 @@ class CreateMembersTable extends Migration
             $table->date('date_of_birth');
             $table->string('phone_number', 20);
             $table->string('email')->nullable();
-            $table->string('password', 150);
+            $table->string('password', 150)->nullable();
 
             $table->string('kra_pin')->nullable();
             $table->text('kra_certificate')->nullable();
 
-            $table->boolean('gender');
+            $table->boolean('gender')->nullable();
             $table->text('passport_photo')->nullable();
-            $table->integer('marital_status_id');
+            $table->integer('marital_status_id')->nullable();
 
             $table->decimal('proposed_monthly_contribution', 8, 2);
 

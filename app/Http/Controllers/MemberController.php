@@ -1,14 +1,14 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\Http\Resources\MemberCollection;
-use App\Http\Resources\MemberResource;
-use App\Member;
-use Illuminate\Http\Request;
-
-class MemberController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use App\Http\Resources\MemberCollection;
+  use App\Http\Resources\MemberResource;
+  use App\Member;
+  use Illuminate\Http\Request;
+  
+  class MemberController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +16,13 @@ class MemberController extends Controller
      */
     public function index()
     {
-        return new MemberCollection(
-          MemberResource::collection(
-            Member::all()
-          )
-        );
+      return new MemberCollection(
+        MemberResource::collection(
+          Member::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -31,35 +31,26 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-          'identificationNumber' => 'required|numeric',
-          'firstName' => 'required|alpha',
-          'lastName' => 'required|alpha',
-          'phoneNumber' => 'required|numeric',
-          'proposedMonthlyContribution' => 'required|numeric',
-          'dateOfBirth' => 'required|date',
-          'email' => 'email',
-          'otherName' => 'alpha'
-        ]);
-        
-        
-        $member = new Member();
-        
-        $member->identification_number = $request['identificationNumber'];
-        $member->first_name = $request['firstName'];
-        $member->last_name = $request['lastName'];
-        $member->other_name = $request['otherName'];
-        $member->phone_number = $request['phoneNumber'];
-        $member->proposed_monthly_contribution = $request['proposedMonthlyContribution'];
-        $member->date_of_birth = $request['dateOfBirth'];
-        
-        $member->save();
+      
+      
+      $member = new Member();
+      
+      $member->identification_number = $request['identificationNumber'];
+      $member->first_name = $request['firstName'];
+      $member->last_name = $request['lastName'];
+      $member->other_name = $request['otherName'];
+      $member->phone_number = $request['phoneNumber'];
+      $member->proposed_monthly_contribution = $request['proposedMonthlyContribution'];
+      $member->date_of_birth = $request['dateOfBirth'];
+      $member->email = $request['email'];
+      
+      $member->save();
       
       return new MemberResource(
         $member
       );
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -68,9 +59,9 @@ class MemberController extends Controller
      */
     public function show($id)
     {
-        //
+      //
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -80,9 +71,9 @@ class MemberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      //
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -91,6 +82,6 @@ class MemberController extends Controller
      */
     public function destroy($id)
     {
-        //
+      //
     }
-}
+  }

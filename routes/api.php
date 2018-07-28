@@ -13,28 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::apiResource('addressdetails', 'AddressDetailController');
+Route::apiResources([
 
-Route::apiResource('businesses', 'BusinessController');
-  
-Route::apiResource('businessnatures', 'BusinessNatureController');
+  'addressdetails' => 'AddressDetailController',
+  'businesses' => 'BusinessController',
+  'businessnatures' => 'BusinessNatureController',
+  'counties' => 'CountyController',
+  'constituencies' => 'ConstituencyController',
+  'employers' => 'EmployerController',
+  'jobtitles' => 'JobTitleController',
+  'localities' => 'LocalityController',
+  'maritalstatuses' => 'MaritalStatusController',
+  'members' => 'MemberController',
+  'paymentdetails' => 'PaymentDetailController',
+  'paymentmethods' => 'PaymentMethodController',
+  'postoffices' => 'PostOfficeController'
 
-Route::apiResource('counties', 'CountyController');
-
-Route::apiResource('constituencies', 'ConstituencyController');
-
-Route::apiResource('employers', 'EmployerController');
-
-Route::apiResource('jobtitles', 'JobTitleController');
-
-Route::apiResource('localities', 'LocalityController');
-
-Route::apiResource('maritalstatuses', 'MaritalStatusController');
-
-Route::apiResource('members', 'MemberController');
-
-Route::apiResource('paymentdetails', 'PaymentDetailController');
-
-Route::apiResource('paymentmethods', 'PaymentMethodController');
-
-Route::apiResource('postoffices', 'PostOfficeController');
+]);

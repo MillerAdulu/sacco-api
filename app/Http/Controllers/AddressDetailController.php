@@ -88,4 +88,28 @@ class AddressDetailController extends Controller
     {
         return AddressDetail::destroy($id);
     }
+
+    public function member_addresses($member) {
+        return new AddressDetailCollection(
+            AddressDetailResource::collection(
+                AddressDetail::where('member_id', $member)->get()
+            )
+        );
+    }
+
+    public function business_addresses($business) {
+        return new AddressDetailCollection(
+            AddressDetailResource::collection(
+                AddressDetail::where('business_id', $business)->get()
+            )
+        );
+    }
+
+    public function employer_addresses($employer) {
+        return new AddressDetailCollection(
+            AddressDetailResource::collection(
+                AddressDetail::where('employer_id', $employer)->get()
+            )
+        );
+    }
 }

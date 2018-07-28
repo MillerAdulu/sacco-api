@@ -30,3 +30,9 @@ Route::apiResources([
   'postoffices' => 'PostOfficeController'
 
 ]);
+
+Route::prefix('addressdetails')->group(function () {
+  Route::get('/members/{member}', 'AddressDetailController@member_addresses');
+  Route::get('/businesses/{business}', 'AddressDetailController@business_addresses');
+  Route::get('/employers/{employer}', 'AddressDetailController@employer_addresses');
+});

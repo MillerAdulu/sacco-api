@@ -18,7 +18,7 @@ class AddressDetailResource extends JsonResource
 
             'addressDetailId' => $this->address_detail_id,
 
-            'memberId' => $this->memberId,
+            'memberId' => $this->member_id,
             'businessId' => $this->business_id,
             'employerId' => $this->employer_id,
 
@@ -31,7 +31,7 @@ class AddressDetailResource extends JsonResource
             'street' => $this->street,
             'buildingName' => $this->building_name,
             'floor' => $this->floor,
-            'houseNumber' => $this->houseNumber,
+            'houseNumber' => $this->house_number,
 
             'createdAt' => (string) $this->created_at,
             'updatedAt' => (string) $this->updated_at

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\AddressDetail;
 use App\Http\Resources\AddressDetailCollection;
 use App\Http\Resources\AddressDetailResource;
+use App\Http\Requests\StoreAddressDetail;
+use App\Http\Requests\UpdateAddressDetail;
 use Illuminate\Http\Request;
 
 class AddressDetailController extends Controller
@@ -29,9 +31,18 @@ class AddressDetailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAddressDetail $request)
     {
-        //
+        $data = $request->all();
+        
+        $address = new AddressDetail;
+        $address->fill($data);
+        $address->save();
+
+        return new AddressDetailResource(
+            $address
+        );
+
     }
 
     /**
@@ -42,7 +53,9 @@ class AddressDetailController extends Controller
      */
     public function show($id)
     {
-        //
+        return new AddressDetailResource(
+            AddressDetail::findOrFail($id)
+        );
     }
 
     /**
@@ -52,9 +65,17 @@ class AddressDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateAddressDetail $request, $id)
     {
-        //
+        $updates = $request->all();
+
+        $address = AddressDetail::findOrFail($id);
+        $address->fill($updates);
+        $address->save();
+
+        return new AddressDetailResource(
+            $address
+        );
     }
 
     /**
@@ -65,6 +86,6 @@ class AddressDetailController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return AddressDetail::destroy($id);
     }
 }

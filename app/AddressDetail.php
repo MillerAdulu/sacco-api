@@ -7,6 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class AddressDetail extends Model
 {
     protected $primaryKey = 'address_detail_id';
+    
+    protected $fillable = [
+      
+        'member_id',
+        'business_id',
+        'employer_id',
+        'county_id',
+        'constituency_id',
+        'locality_id',
+        'postal_address',
+        'post_office_id',
+        'street',
+        'building_name',
+        'floor',
+        'house_number'
+    ];
 
     public function member () {
 

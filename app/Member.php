@@ -8,6 +8,24 @@ class Member extends Model
 {
     protected $primaryKey = 'member_id';
 
+    protected $fillable = [
+        'identification_number',
+        'first_name',
+        'last_name',
+        'other_name',
+        'id_file_url',
+        'date_of_birth',
+        'phone_number',
+        'email',
+        'password',
+        'kra_pin',
+        'kra_certificate',
+        'gender',
+        'passport_photo',
+        'marital_status_id',
+        'proposed_monthly_contribution'
+    ];
+
     public function marital_status () {
 
         return $this->hasOne (

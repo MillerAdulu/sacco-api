@@ -2,10 +2,13 @@
   
   namespace App\Http\Controllers;
   
+  use Illuminate\Support\Facades\Hash;
   use App\Http\Resources\MemberCollection;
   use App\Http\Resources\MemberResource;
   use App\Member;
   use Illuminate\Http\Request;
+  use App\Http\Requests\StoreMember;
+  use App\Http\Requests\UpdateMember;
   
   class MemberController extends Controller
   {
@@ -26,26 +29,19 @@
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param StoreMember  $request
      * @return \App\Http\Resources\MemberResource
      */
-    public function store(Request $request)
+    public function store(StoreMember $request)
     {
-      
-      
+      $data = $request->all();
+
       $member = new Member();
-      
-      $member->identification_number = $request['identificationNumber'];
-      $member->first_name = $request['firstName'];
-      $member->last_name = $request['lastName'];
-      $member->other_name = $request['otherName'];
-      $member->phone_number = $request['phoneNumber'];
-      $member->proposed_monthly_contribution = $request['proposedMonthlyContribution'];
-      $member->date_of_birth = $request['dateOfBirth'];
-      $member->email = $request['email'];
-      
+
+      $member->fill($data);
+
       $member->save();
-      
+
       return new MemberResource(
         $member
       );
@@ -59,19 +55,32 @@
      */
     public function show($id)
     {
-      //
+      return new MemberResource(
+        Member::findOrFail($id)
+      );
     }
     
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\MemberResource
      */
-    public function update(Request $request, $id)
-    {
-      //
+    public function update(UpdateMember $request, $id)
+    {    
+      $data = $request->all();
+
+      $member = Member::findOrFail($id);
+
+      $member->fill($data);
+
+      $member->password = Hash::make($request->password);
+
+      $member->save();
+
+      return new MemberResource(
+        $member
+      );
+
     }
     
     /**
@@ -82,6 +91,6 @@
      */
     public function destroy($id)
     {
-      //
+      return Member::destroy($id);
     }
   }

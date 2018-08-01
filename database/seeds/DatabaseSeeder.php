@@ -43,5 +43,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(NomineeSeeder::class);
 
+        $this->call(MemberContributionSeeder::class);
+
     }
 }

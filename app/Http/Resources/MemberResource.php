@@ -27,7 +27,6 @@ class MemberResource extends JsonResource
             'dateOfBirth' => $this->date_of_birth,
             'phoneNumber' => $this->phone_number,
             'email' => $this->email,
-            'password' => $this->password,
 
             'kraPin' => $this->kra_pin,
             'kraCertificate' => $this->kra_certificate,

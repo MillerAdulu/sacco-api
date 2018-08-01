@@ -30,7 +30,6 @@ class Member extends Model
 
         return $this->hasOne (
             MaritalStatus::class,
-            'marital_status_id',
             'marital_status_id'
         );
 
@@ -40,7 +39,6 @@ class Member extends Model
 
         return $this->hasMany (
             AddressDetail::class,
-            'member_id',
             'member_id'
         );
 
@@ -61,10 +59,17 @@ class Member extends Model
 
         return $this->hasMany (
             EmploymentDetail::class,
-            'member_id',
             'member_id'
         );
 
+    }
+
+    public function member_contributions() {
+
+        return $this->hasMany(
+            MemberContribution::class,
+            'member_id'
+        );
     }
 
 }

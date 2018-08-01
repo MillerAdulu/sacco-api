@@ -27,7 +27,9 @@ Route::apiResources([
   'members' => 'MemberController',
   'paymentdetails' => 'PaymentDetailController',
   'paymentmethods' => 'PaymentMethodController',
-  'postoffices' => 'PostOfficeController'
+  'postoffices' => 'PostOfficeController',
+  'nominees' => 'NomineeController',
+  'relationships' => 'RelationshipController'
 
 ]);
 
@@ -47,4 +49,8 @@ Route::prefix('localities')->group(function () {
 
 Route::prefix('paymentdetails')->group(function () {
   Route::get('/members/{member}', 'PaymentDetailController@memberPaymentDetails');
+});
+
+Route::prefix('nominees')->group(function() {
+  Route::get('/members/{member}', 'NomineeController@memberNominees');
 });

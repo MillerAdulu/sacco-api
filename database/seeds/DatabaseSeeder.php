@@ -39,5 +39,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(EmploymentDetailSeeder::class);
 
+        $this->call(RelationshipSeeder::class);
+
+        $this->call(NomineeSeeder::class);
+
     }
 }

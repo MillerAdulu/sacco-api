@@ -17,7 +17,7 @@ class CreatePaymentMethodsTable extends Migration
 
             $table->increments('payment_method_id');
 
-            $table->string('payment_method', 30);
+            $table->string('payment_method_name', 30);
 
             $table->timestamps();
 

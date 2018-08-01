@@ -42,7 +42,9 @@ class CountyController extends Controller
      */
     public function show($id)
     {
-        //
+        return new CountyResource(
+            County::find($id)
+        );
     }
 
     /**

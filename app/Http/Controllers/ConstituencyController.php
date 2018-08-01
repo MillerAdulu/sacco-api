@@ -42,7 +42,9 @@ class ConstituencyController extends Controller
      */
     public function show($id)
     {
-        //
+        return new ConstituencyResource(
+            Constituency::find($id)
+        );
     }
 
     /**
@@ -66,5 +68,13 @@ class ConstituencyController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function countyConstituencies($county) {
+        return new ConstituencyCollection(
+            ConstituencyResource::collection(
+                Constituency::where('county_id', $county)->get()
+            )
+        );
     }
 }

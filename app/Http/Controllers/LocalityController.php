@@ -67,4 +67,12 @@ class LocalityController extends Controller
     {
         //
     }
+
+    public function constituencyLocalities($constituency) {
+        return new LocalityCollection(
+            LocalityResource::collection(
+                Locality::where('constituency_id', $constituency)->get()
+            )
+        );
+    }
 }

@@ -31,7 +31,14 @@ class PaymentDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $paymentDetail = new PaymentDetail;
+        $paymentDetail->fill($data);
+        $paymentDetail->save();
+
+        return new PaymentDetailResource(
+            $paymentDetail
+        );
     }
 
     /**
@@ -42,7 +49,9 @@ class PaymentDetailController extends Controller
      */
     public function show($id)
     {
-        //
+        return new PaymentDetailResource(
+            PaymentDetail::findOrFail($id)
+        );
     }
 
     /**
@@ -65,6 +74,15 @@ class PaymentDetailController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return PaymentDetail::destroy($id);
+    }
+
+
+    public function memberPaymentDetails($member) {
+        return new PaymentDetailCollection(
+            PaymentDetailResource::collection(
+                PaymentDetail::where('member_id', $member)->get()
+            )
+        );
     }
 }

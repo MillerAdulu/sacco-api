@@ -16,7 +16,8 @@ $factory->define(App\PaymentDetail::class, function (Faker $faker) {
 
         'bank_account_number' => $faker->bankAccountNumber,
         'card_number' => $faker->bankAccountNumber,
-        'phone_number' => $faker->e164PhoneNumber
+        'phone_number' => $faker->e164PhoneNumber,
+        'provider' => $faker->firstName
 
     ];
 });

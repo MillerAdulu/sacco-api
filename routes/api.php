@@ -36,3 +36,15 @@ Route::prefix('addressdetails')->group(function () {
   Route::get('/businesses/{business}', 'AddressDetailController@business_addresses');
   Route::get('/employers/{employer}', 'AddressDetailController@employer_addresses');
 });
+
+Route::prefix('constituencies')->group(function () {
+  Route::get('/county/{county}', 'ConstituencyController@countyConstituencies');
+});
+
+Route::prefix('localities')->group(function () {
+  Route::get('/constituency/{constituency}', 'LocalityController@constituencyLocalities');
+});
+
+Route::prefix('paymentdetails')->group(function () {
+  Route::get('/members/{member}', 'PaymentDetailController@memberPaymentDetails');
+});

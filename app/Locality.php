@@ -12,7 +12,6 @@ class Locality extends Model
 
         return $this->belongsTo (
             Constituency::class,
-            'constituency_id',
             'constituency_id'
         );
 

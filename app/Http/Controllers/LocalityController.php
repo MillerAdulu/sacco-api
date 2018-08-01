@@ -42,7 +42,9 @@ class LocalityController extends Controller
      */
     public function show($id)
     {
-        //
+        return new LocalityResource(
+            Locality::findOrFail($id)
+        );
     }
 
     /**

@@ -28,7 +28,6 @@ class AddressDetail extends Model
 
         return $this->belongsTo (
             Member::class,
-            'member_id',
             'member_id'
         );
 
@@ -38,7 +37,6 @@ class AddressDetail extends Model
 
         return $this->belongsTo (
             Employer::class,
-            'employer_id',
             'employer_id'
         );
 
@@ -52,5 +50,33 @@ class AddressDetail extends Model
             'business_id'
         );
 
+    }
+
+    public function county() {
+        return $this->belongsTo(
+            County::class,
+            'county_id'
+        );
+    }
+
+    public function constituency() {
+        return $this->belongsTo(
+            Constituency::class,
+            'constituency_id'
+        );
+    }
+
+    public function locality() {
+        return $this->belongsTo(
+            Locality::class,
+            'locality_id'
+        );
+    }
+
+    public function postOffice() {
+        return $this->belongsTo(
+            PostOffice::class,
+            'post_office_id'
+        );
     }
 }

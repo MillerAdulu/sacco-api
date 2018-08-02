@@ -8,6 +8,10 @@ class MemberContribution extends Model
 {
     protected $primaryKey = 'member_contribution_id';
 
+    protected $fillable = [
+        'member_id', 'contribution_amount', 'payment_method_id'
+    ];
+
     public function member() {
         return $this->belongsTo(
             Member::class,

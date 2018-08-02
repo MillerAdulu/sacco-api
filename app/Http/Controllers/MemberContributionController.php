@@ -19,7 +19,7 @@ class MemberContributionController extends Controller
     {
         return new MemberContributionCollection(
             MemberContributionResource::collection(
-                MemberContribution::all()
+                MemberContribution::latest()->get()
             )
         );
     }
@@ -35,6 +35,7 @@ class MemberContributionController extends Controller
         $data = $request->all();
 
         $memberContribution = new MemberContribution;
+        
         $memberContribution->fill($data);
         $memberContribution->save();
 

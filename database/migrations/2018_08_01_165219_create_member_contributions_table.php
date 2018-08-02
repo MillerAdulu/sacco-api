@@ -16,12 +16,13 @@ class CreateMemberContributionsTable extends Migration
         Schema::create('member_contributions', function (Blueprint $table) {
             $table->increments('member_contribution_id');
 
-            $table->integer('member_id')->nullable();
+            $table->integer('member_id');
             $table->integer('payment_method_id');
             $table->decimal('contribution_amount');
             
             $table->timestamps();
 
+            $table->index('member_id');
             $table->foreign('member_id')->references('member_id')->on('members');
             $table->foreign('payment_method_id')->references('payment_method_id')->on('payment_methods');
         });

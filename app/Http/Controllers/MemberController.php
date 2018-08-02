@@ -21,7 +21,7 @@
     {
       return new MemberCollection(
         MemberResource::collection(
-          Member::all()
+          Member::latest()->get()
         )
       );
     }

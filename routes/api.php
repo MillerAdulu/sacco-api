@@ -58,4 +58,5 @@ Route::prefix('nominees')->group(function() {
 
 Route::prefix('membercontributions')->group(function() {
   Route::get('/members/{member}', 'MemberContributionController@memberContributions');
+  Route::get('/members/accounts/all', 'MemberContributionController@allAccounts');
 });

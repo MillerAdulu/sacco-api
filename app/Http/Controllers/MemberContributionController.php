@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\MemberContribution;
 use App\Http\Resources\MemberContributionResource;
 use App\Http\Resources\MemberContributionCollection;
-
 use Illuminate\Http\Request;
+use App\Http\Resources\MemberContributionTotalResource;
 
 class MemberContributionController extends Controller
 {
@@ -86,5 +86,13 @@ class MemberContributionController extends Controller
                 MemberContribution::where('member_id', $member)->get()
             )
         );        
+    }
+    
+    public function allAccounts() {
+        return new MemberContributionCollection(
+            MemberContributionTotalResource::collection(
+                MemberContribution::select('member_id', \DB::raw('SUM(contribution_amount) AS total'))->groupBy('member_id')->get()
+            )
+        );
     }
 }

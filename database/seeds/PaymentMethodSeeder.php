@@ -11,6 +11,6 @@ class PaymentMethodSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\PaymentMethod', 5)->create();
+        factory('App\PaymentMethod', 2)->create();
     }
 }

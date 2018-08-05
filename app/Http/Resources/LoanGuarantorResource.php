@@ -23,6 +23,7 @@ class LoanGuarantorResource extends JsonResource
                     $this->member_loan_id
                 )
             ),
+            'identificationNumber' => $this->identification_number,
             'firstName' => $this->first_name,
             'lastName' => $this->last_name,
             'otherName' => $this->other_name,

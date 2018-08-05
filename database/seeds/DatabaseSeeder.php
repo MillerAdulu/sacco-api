@@ -45,5 +45,15 @@ class DatabaseSeeder extends Seeder
 
         $this->call(MemberContributionSeeder::class);
 
+        $this->call(LoanRepaymentStatusSeeder::class);
+
+        $this->call(LoanIssuingStatusSeeder::class);
+
+        $this->call(LoanTypeSeeder::class);
+
+        $this->call(MemberLoanSeeder::class);
+
+        $this->call(LoanGuarantorSeeder::class);
+
     }
 }

@@ -60,3 +60,14 @@ Route::prefix('membercontributions')->group(function() {
   Route::get('/members/{member}', 'MemberContributionController@memberContributions');
   Route::get('/members/accounts/all', 'MemberContributionController@allAccounts');
 });
+
+Route::prefix('/loans')->group(function() {
+  Route::apiResources([
+    'types' => 'LoanTypeController',
+    'repaymentstatuses' => 'LoanRepaymentStatusController',
+    'issuingstatuses' => 'LoanIssuingStatusController',
+    'guarantors' => 'LoanGuarantorController',
+    'memberloans' => 'MemberLoanController'
+  ]);
+});
+

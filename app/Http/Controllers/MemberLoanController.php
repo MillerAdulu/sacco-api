@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Member;
 use App\MemberLoan;
 use App\Http\Resources\MemberLoanResource;
 use App\Http\Resources\MemberLoanCollection;
@@ -84,5 +85,13 @@ class MemberLoanController extends Controller
     public function destroy($id)
     {
         return MemberLoan::destroy($id);
+    }
+
+    public function memberLoans($member) {
+        return new MemberLoanCollection(
+            MemberLoanResource::collection(
+                Member::findOrFail($member)->loans
+            )
+        );
     }
 }

@@ -72,4 +72,11 @@ class Member extends Model
         );
     }
 
+    public function loans() {
+        return $this->hasMany(
+            MemberLoan::class,
+            'member_id'
+        );
+    }
+
 }

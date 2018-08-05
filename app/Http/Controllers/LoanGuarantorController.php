@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\MemberLoan;
 use App\LoanGuarantor;
 use App\Http\Resources\LoanGuarantorResource;
 use App\Http\Resources\LoanGuarantorCollection;
@@ -84,5 +85,13 @@ class LoanGuarantorController extends Controller
     public function destroy($id)
     {
         return LoanGuarantor::destroy($id);
+    }
+
+    public function loanGuarantors($loan) {
+        return new LoanGuarantorCollection(
+            LoanGuarantorResource::collection(
+                MemberLoan::findOrFail($loan)->guarantors
+            )
+        );
     }
 }

@@ -71,6 +71,7 @@ Route::prefix('/loans')->group(function() {
   ]);
 
   Route::get('member/{member}', 'MemberLoanController@memberLoans');
+  Route::get('loan/{loan}', 'LoanGuarantorController@loanGuarantors');
 });
 
 Route::prefix('/dashboard')->group(function() {

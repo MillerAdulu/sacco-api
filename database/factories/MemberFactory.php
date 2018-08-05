@@ -7,7 +7,7 @@ $factory->define(App\Member::class, function (Faker $faker) {
 
     $marital_statuses = MaritalStatus::all()->pluck('marital_status_id')->toArray();
 
-    $image_url = $faker->imageUrl($width = 640, $height = 480);
+    $image_url = $faker->imageUrl($width = 200, $height = 200);
     return [
 
         'identification_number' => $faker->ean13,

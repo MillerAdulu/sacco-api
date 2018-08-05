@@ -35,4 +35,11 @@ class MemberLoan extends Model
             'loan_type_id'
         );
     }
+
+    public function guarantors() {
+        return $this->hasMany(
+            LoanGuarantor::class,
+            'loan_guarantor_id'
+        );
+    }
 }

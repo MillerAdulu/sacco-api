@@ -71,3 +71,8 @@ Route::prefix('/loans')->group(function() {
   ]);
 });
 
+Route::prefix('/dashboard')->group(function() {
+  Route::get('/members', 'DashboardController@members');
+  Route::get('/contributions', 'DashboardController@contributions');
+  Route::get('/memberloans', 'DashboardController@memberLoans');
+});

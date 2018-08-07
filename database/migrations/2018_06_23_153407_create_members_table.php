@@ -29,7 +29,6 @@ class CreateMembersTable extends Migration
             $table->string('password', 150)->nullable();
 
             $table->string('kra_pin')->nullable();
-            $table->text('kra_certificate')->nullable();
 
             $table->boolean('gender')->nullable();
             $table->text('passport_photo')->nullable();

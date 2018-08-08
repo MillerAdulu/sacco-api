@@ -17,7 +17,6 @@ $factory->define(App\Member::class, function (Faker $faker) {
         'date_of_birth' => $faker->date('Y-m-d', 'now'),
         'phone_number' => $faker->e164PhoneNumber,
         'email' => $faker->email,
-        'password' => $faker->sha256,
 
         'kra_pin' => $faker->swiftBicNumber,
 

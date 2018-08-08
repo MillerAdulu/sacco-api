@@ -25,7 +25,6 @@ class CreateMembersTable extends Migration
             $table->date('date_of_birth');
             $table->string('phone_number', 20);
             $table->string('email')->nullable();
-            $table->string('password', 150)->nullable();
 
             $table->string('kra_pin')->nullable();
 

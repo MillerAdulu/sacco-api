@@ -39,7 +39,7 @@ $factory->define(App\AddressDetail::class, function (Faker $faker) {
     $post_offices = PostOffice::all()->pluck('post_office_id')->toArray();
 
     return [
-        'member_id' => $faker->unique()->randomElement($members),
+        'member_id' => $faker->randomElement($members),
 
         'county_id' => $constituency_county,
         'constituency_id' => $locality_constituency,

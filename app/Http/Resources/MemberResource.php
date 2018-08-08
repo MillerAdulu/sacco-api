@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\MaritalStatus;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class MemberResource extends JsonResource
@@ -33,7 +34,9 @@ class MemberResource extends JsonResource
 
             'gender' => $this->gender,
             'passportPhoto' => $this->passport_photo,
-            'maritalStatusId' => $this->marital_status_id,
+            'maritalStatus' => new MaritalStatusResource(MaritalStatus::find(
+                $this->marital_status_id
+            )),
 
             'proposedMonthlyContribution' => $this->proposed_monthly_contribution,
 

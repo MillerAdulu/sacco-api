@@ -21,7 +21,6 @@ class CreateMembersTable extends Migration
             $table->string('first_name', 30);
             $table->string('last_name', 30);
             $table->string('other_name')->nullable();
-            $table->text('id_file_url')->nullable();
 
             $table->date('date_of_birth');
             $table->string('phone_number', 20);

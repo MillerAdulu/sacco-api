@@ -13,7 +13,6 @@ class Member extends Model
         'first_name',
         'last_name',
         'other_name',
-        'id_file_url',
         'date_of_birth',
         'phone_number',
         'email',

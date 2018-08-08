@@ -23,7 +23,6 @@ class MemberResource extends JsonResource
             'firstName' => $this->first_name,
             'lastName' => $this->last_name,
             'otherName' => $this->other_name,
-            'idFileUrl' => $this->id_file_url,
 
             'dateOfBirth' => $this->date_of_birth,
             'phoneNumber' => $this->phone_number,

@@ -79,3 +79,5 @@ Route::prefix('/dashboard')->group(function() {
   Route::get('/contributions', 'DashboardController@contributions');
   Route::get('/memberloans', 'DashboardController@memberLoans');
 });
+
+Route::get('/password/{member}', 'MemberController@registerPassword');

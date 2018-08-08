@@ -2,10 +2,12 @@
   
   namespace App\Http\Controllers;
   
+  use Illuminate\Support\Facades\Mail;
   use Illuminate\Support\Facades\Hash;
   use App\Http\Resources\MemberCollection;
   use App\Http\Resources\MemberResource;
   use App\Member;
+  use App\Mail\AccountDetailsMail;
   use Illuminate\Http\Request;
   use App\Http\Requests\StoreMember;
   use App\Http\Requests\UpdateMember;
@@ -92,5 +94,18 @@
     public function destroy($id)
     {
       return Member::destroy($id);
+    }
+
+    public function registerPassword($member) {
+      $member = Member::find($member);
+      $password = str_random(8);
+      $member->password = Hash::make($password);
+      $member->save();
+
+      $member->password = $password;
+
+      Mail::to($member->email)->send(new AccountDetailsMail($member));
+      
+      return $member;
     }
   }

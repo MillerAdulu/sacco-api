@@ -11,6 +11,9 @@
   use Illuminate\Http\Request;
   use App\Http\Requests\StoreMember;
   use App\Http\Requests\UpdateMember;
+  use JWTFactory;
+  use JWTAuth;
+  use App\User;
   
   class MemberController extends Controller
   {
@@ -43,6 +46,8 @@
       $member->fill($data);
 
       $member->save();
+
+      $this->registerAccount($member);
 
       return new MemberResource(
         $member
@@ -96,16 +101,17 @@
       return Member::destroy($id);
     }
 
-    public function registerPassword($member) {
-      $member = Member::find($member);
+    public function registerAccount($member) {
       $password = str_random(8);
-      $member->password = Hash::make($password);
-      $member->save();
+      User::create([
+        'name' => $member->last_name,
+        'email' => $member->email,
+        'phone_number' => $member->phone_number,
+        'password' => Hash::make($password)
+      ]);
 
-      $member->password = $password;
-
-      Mail::to($member->email)->send(new AccountDetailsMail($member));
+      // Mail::to($member->email)->send(new AccountDetailsMail($member));
       
-      return $member;
+      return true;
     }
   }

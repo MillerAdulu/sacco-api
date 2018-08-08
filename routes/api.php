@@ -80,4 +80,7 @@ Route::prefix('/dashboard')->group(function() {
   Route::get('/memberloans', 'DashboardController@memberLoans');
 });
 
-Route::get('/password/{member}', 'MemberController@registerPassword');
+Route::prefix('/auth')->group(function() {
+  Route::post('/register', 'RegisterUserController@register');
+  Route::post('/login', 'LoginUserController@login');
+});

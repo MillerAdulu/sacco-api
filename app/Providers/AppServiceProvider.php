@@ -12,9 +12,6 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 
 class AppServiceProvider extends ServiceProvider
 {
-    protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
-    ];
     /**
      * Bootstrap any application services.
      *
@@ -27,8 +24,6 @@ class AppServiceProvider extends ServiceProvider
         Resource::withoutWrapping();
 
         $this->registerPolicies();
-
-        Passport::routes();
     }
 
     /**

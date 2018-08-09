@@ -3,6 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use JWTFactory;
+use JWTAuth;
 
 class UserResource extends JsonResource
 {
@@ -13,12 +15,13 @@ class UserResource extends JsonResource
      * @return array
      */
     public function toArray($request)
-    {
+    {    
         return [
             'userId' => $this->id,
             'userName' => $this->name,
             'email' => $this->email,
-            'phoneNumber' => $this->phone_number
+            'phoneNumber' => $this->phone_number,
+            'token' => JWTAuth::fromUser($this)
         ];
     }
 }

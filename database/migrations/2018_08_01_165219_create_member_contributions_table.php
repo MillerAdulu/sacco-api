@@ -19,6 +19,7 @@ class CreateMemberContributionsTable extends Migration
             $table->integer('member_id');
             $table->integer('payment_method_id');
             $table->decimal('contribution_amount');
+            $table->string('comment')->nullable();
             
             $table->timestamps();
 

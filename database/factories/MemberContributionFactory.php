@@ -11,6 +11,7 @@ $factory->define(App\MemberContribution::class, function (Faker $faker) {
     return [
         'member_id' => $faker->randomElement($members),
         'payment_method_id' => $faker->randomElement($payment_methods),
-        'contribution_amount' => $faker->randomFloat(2, 0, 999999)
+        'contribution_amount' => $faker->randomFloat(2, 0, 999999),
+        'comment' => $faker->word
     ];
 });

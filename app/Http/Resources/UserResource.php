@@ -21,6 +21,7 @@ class UserResource extends JsonResource
             'userName' => $this->name,
             'email' => $this->email,
             'phoneNumber' => $this->phone_number,
+            'accessLevel' => $this->access_level,
             'token' => JWTAuth::fromUser($this)
         ];
     }

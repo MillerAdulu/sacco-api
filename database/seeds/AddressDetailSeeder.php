@@ -11,6 +11,6 @@ class AddressDetailSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\AddressDetail', 250 * 3)->create();
+        factory('App\AddressDetail', 250 * 2)->create();
     }
 }

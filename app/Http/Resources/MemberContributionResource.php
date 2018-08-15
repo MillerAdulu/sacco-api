@@ -16,6 +16,7 @@ class MemberContributionResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'type' => 'MemberContribution',
             'memberContributionId' => $this->member_contribution_id,
             'member' => new MemberResource(MemberContribution::where('member_id', $this->member_id)->first()->member),
             'paymentMethod' => new PaymentMethodResource(MemberContribution::where('payment_method_id', $this->payment_method_id)->first()->paymentMethod),

@@ -16,6 +16,7 @@ class MemberContributionTotalResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'type' => 'MemberContributionTotal',
             'member' => new MemberResource(MemberContribution::where('member_id', $this->member_id)->first()->member),
             'contributionTotal' => $this->total
         ];;

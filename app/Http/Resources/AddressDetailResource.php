@@ -16,7 +16,7 @@ class AddressDetailResource extends JsonResource
     public function toArray($request)
     {
         return [
-
+            'type' => 'AddressDetails',
             'addressDetailId' => $this->address_detail_id,
 
             'memberId' => $this->member_id,

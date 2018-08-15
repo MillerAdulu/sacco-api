@@ -25,6 +25,7 @@ class NomineeResource extends JsonResource
         }
 
         return [
+            'type' => 'Nominee',
             'identificationNumber' => $this->identification_number,
             'firstName' => $this->first_name,
             'lastName' => $this->last_name,

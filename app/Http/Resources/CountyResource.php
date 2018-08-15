@@ -15,7 +15,7 @@ class CountyResource extends JsonResource
     public function toArray($request)
     {
         return [
-
+            'type' => 'County',
             'countyId' => $this->county_id,
 
             'countyCode' => $this->county_code,

@@ -15,7 +15,8 @@ class PostOfficeResource extends JsonResource
     public function toArray($request)
     {
         return [
-
+            'type' => 'PostOffice',
+            
             'postOfficeId' => $this->post_office_id,
 
             'postOfficeCode' => $this->post_office_code,

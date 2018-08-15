@@ -25,7 +25,7 @@ class PaymentDetailResource extends JsonResource
         }
 
         return [
-
+            'type' => 'PaymentDetails',
             'paymentDetailsId' => $this->payment_details_id,
             'paymentMethodId' => $this->payment_method_id,
             'paymentMethodName' => $payment_method_name,

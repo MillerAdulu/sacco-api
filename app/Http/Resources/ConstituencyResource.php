@@ -15,7 +15,7 @@ class ConstituencyResource extends JsonResource
     public function toArray($request)
     {
         return [
-
+            'type' => 'Constituency',
             'constituencyId' => $this->constituency_id,
 
             'countyId' => $this->county_id,

@@ -17,6 +17,7 @@ class LoanGuarantorResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'type' => 'LoanGuarantor',
             'loanGuarantorId' => $this->loan_guarantor_id,
             'memberLoan' => new MemberLoanResource(
                 MemberLoan::find(

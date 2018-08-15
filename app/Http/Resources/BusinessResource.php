@@ -15,7 +15,7 @@ class BusinessResource extends JsonResource
     public function toArray($request)
     {
         return [
-
+            'type' => 'Business',
             'businessId' => $this->business_id,
             'memberId' => $this->member_id,
 

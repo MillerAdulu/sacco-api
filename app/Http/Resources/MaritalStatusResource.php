@@ -15,7 +15,7 @@ class MaritalStatusResource extends JsonResource
     public function toArray($request)
     {
         return [
-
+            'type' => 'MaritalStatus',
             'maritalStatusId' => $this->marital_status_id,
             'maritalStatus' => $this->marital_status,
 

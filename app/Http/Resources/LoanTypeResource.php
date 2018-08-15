@@ -15,6 +15,7 @@ class LoanTypeResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'type' => 'LoanType',
             'loanTypeId' => $this->loan_type_id,
             'loanTypeName' => $this->loan_type_name,
             'createdAt' => (string) $this->created_at,

@@ -15,6 +15,7 @@ class RelationshipResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'type' => 'Relationship',
             'relationshipId' => $this->relationship_id,
             'relationshipName' => $this->relationship_name,
             'createdAt' => (string) $this->created_at,

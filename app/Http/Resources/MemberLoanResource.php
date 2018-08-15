@@ -21,6 +21,7 @@ class MemberLoanResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'type' => 'MemberLoan',
             'memberLoanId' => $this->member_loan_id,
             'member' => new MemberResource(
                 Member::find(

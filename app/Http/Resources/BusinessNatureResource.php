@@ -15,7 +15,7 @@ class BusinessNatureResource extends JsonResource
     public function toArray($request)
     {
         return [
-
+            'type' => 'BusinessNature',
             'businessNatureId' => $this->business_nature_id,
             'natureOfBusiness' => $this->nature_of_business,
 

@@ -23,7 +23,8 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'phoneNumber' => $this->phone_number,
             'accessLevel' => $this->access_level,
-            'token' => JWTAuth::fromUser($this)
+            'token' => JWTAuth::fromUser($this),
+            'memberId' => $this->member_id
         ];
     }
 }

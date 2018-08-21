@@ -79,3 +79,7 @@ Route::prefix('/dashboard')->group(function() {
   Route::get('/contributions', 'DashboardController@contributions');
   Route::get('/memberloans', 'DashboardController@memberLoans');
 });
+
+Route::prefix('/members')->group(function() {
+  Route::post('/accounts/register/{member}', 'MemberController@registerAccount');
+});

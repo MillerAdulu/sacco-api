@@ -6,6 +6,7 @@
   use Illuminate\Support\Facades\Hash;
   use App\Http\Resources\MemberCollection;
   use App\Http\Resources\MemberResource;
+  use App\Http\Resources\UserResource;
   use App\Member;
   use App\Mail\AccountDetailsMail;
   use Illuminate\Http\Request;
@@ -47,7 +48,7 @@
 
       $member->save();
 
-      $this->registerAccount($member);
+      $this->registerAccount($member->phone_number);
 
       return new MemberResource(
         $member
@@ -102,16 +103,46 @@
     }
 
     public function registerAccount($member) {
-      $password = str_random(8);
-      User::create([
-        'name' => $member->last_name,
-        'email' => $member->email,
-        'phone_number' => $member->phone_number,
-        'password' => Hash::make($password)
-      ]);
 
-      // Mail::to($member->email)->send(new AccountDetailsMail($member));
+      $user = User::where('email', $member)
+            ->orWhere('phone_number', $member)
+            ->first();
+
+      if($user) {
+        return response()
+                ->json(['Error' => 'This user already exists']);
+      }
+
+      $saccoMember = Member::where('email', $member)
+                        ->orWhere('phone_number', $member)
+                        ->first();
+
+      if(!$saccoMember) {
+        return response()
+                ->json(['Error' => 'This member doesn\'t exist']);
+      }
+
+      $newUserPassword = str_random(8);
       
-      return true;
+      $newUser = new User;
+      $newUser->name = $saccoMember->last_name;
+      $newUser->email = $saccoMember->email;
+      $newUser->phone_number = $saccoMember->phone_number;
+      $newUser->password = Hash::make($newUserPassword);
+      $newUser->member_id = $saccoMember->member_id;
+      $newUser->save();
+
+      return response()->json([
+        'MemberId' => $newUser->member_id,
+        'Email' => $newUser->email,
+        'Phone Number' => $newUser->phone_number,
+        'Password' => $newUserPassword
+        ]);
+        
+      // Mail::to($saccoMember->email)->send(new AccountDetailsMail($saccoMember));
+      
+      return new UserResource(
+        $newUser
+      );
     }
   }

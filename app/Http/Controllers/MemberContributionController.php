@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\MemberContribution;
+use App\Member;
 use App\Http\Resources\MemberContributionResource;
 use App\Http\Resources\MemberContributionCollection;
 use Illuminate\Http\Request;
@@ -93,6 +94,28 @@ class MemberContributionController extends Controller
             MemberContributionTotalResource::collection(
                 MemberContribution::select('member_id', \DB::raw('SUM(contribution_amount) AS total'))->groupBy('member_id')->get()
             )
+        );
+    }
+
+    public function addMpesaContribution(Request $request) {
+        $contributionDetails = $request->all();
+
+        // return $contributionDetails;
+
+        $member = Member::findOrFail(
+            $contributionDetails['BillRefNumber']
+        );
+
+        $newContribution = new MemberContribution;
+        
+        $newContribution->contribution_amount = $contributionDetails['TransAmount'];
+        $newContribution->payment_method_id = 1;
+        $newContribution->comment = $contributionDetails['TransID'];
+        $newContribution->member_id = $member->member_id;
+        $newContribution->save();
+
+        return new MemberContributionResource(
+            $newContribution
         );
     }
 }

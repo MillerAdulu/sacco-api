@@ -13,3 +13,4 @@
 
 Route::post('/register', 'RegisterUserController@register');
 Route::post('/login', 'LoginUserController@login');
+Route::post('/addcontribution', 'MemberContributionController@addMpesaContribution');

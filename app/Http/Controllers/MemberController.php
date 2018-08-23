@@ -132,14 +132,9 @@
       $newUser->member_id = $saccoMember->member_id;
       $newUser->save();
 
-      return response()->json([
-        'MemberId' => $newUser->member_id,
-        'Email' => $newUser->email,
-        'Phone Number' => $newUser->phone_number,
-        'Password' => $newUserPassword
-        ]);
+      $saccoMember->password = $newUserPassword;
         
-      // Mail::to($saccoMember->email)->send(new AccountDetailsMail($saccoMember));
+      Mail::to($saccoMember->email)->send(new AccountDetailsMail($saccoMember));
       
       return new UserResource(
         $newUser

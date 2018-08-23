@@ -100,8 +100,6 @@ class MemberContributionController extends Controller
     public function addMpesaContribution(Request $request) {
         $contributionDetails = $request->all();
 
-        // return $contributionDetails;
-
         $member = Member::findOrFail(
             $contributionDetails['BillRefNumber']
         );

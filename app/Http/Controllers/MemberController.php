@@ -101,7 +101,7 @@
     {
       return Member::destroy($id);
     }
-
+    
     public function registerAccount($member) {
 
       $user = User::where('email', $member)
@@ -139,5 +139,30 @@
       return new UserResource(
         $newUser
       );
+    }
+
+    public function resetPassword($member) {
+      $resetPass =  User::where('email', $member)
+            ->orWhere('phone_number', $member)
+            ->first();
+
+      if(!$resetPass) {
+        return response()
+                ->json(['Error' => 'This user does not exist']);
+      }
+
+      $newUserPassword = str_random(8);
+
+      $resetPass->password = Hash::make($newUserPassword);
+      $resetPass->save();
+      
+      $resetPass->password = $newUserPassword;
+
+      Mail::to($resetPass->email)->send(new AccountDetailsMail($resetPass));
+
+      return new UserResource(
+        $resetPass
+      );
+      
     }
   }

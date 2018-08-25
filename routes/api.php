@@ -82,4 +82,5 @@ Route::prefix('/dashboard')->group(function() {
 
 Route::prefix('/members')->group(function() {
   Route::post('/accounts/register/{member}', 'MemberController@registerAccount');
+  Route::post('/accounts/reset/{member}', 'MemberController@resetPassword');
 });

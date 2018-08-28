@@ -14,4 +14,4 @@ yarn-error.log
 graph.png
 config/erd-generator.php
 
-resources/
+# resources/

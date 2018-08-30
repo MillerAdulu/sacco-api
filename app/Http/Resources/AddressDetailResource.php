@@ -3,6 +3,10 @@
 namespace App\Http\Resources;
 
 use App\AddressDetail;
+use App\County;
+use App\Constituency;
+use App\Locality;
+use App\PostOffice;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AddressDetailResource extends JsonResource
@@ -23,11 +27,19 @@ class AddressDetailResource extends JsonResource
             'businessId' => $this->business_id,
             'employerId' => $this->employer_id,
 
-            'county' => new CountyResource(AddressDetail::where('county_id', $this->county_id)->first()->county),
-            'constituency' => new ConstituencyResource(AddressDetail::where('constituency_id', $this->constituency_id)->first()->constituency),
-            'locality' => new LocalityResource(AddressDetail::where('locality_id', $this->locality_id)->first()->locality),
+            'county' => new CountyResource(
+                County::find($this->county_id)
+            ),
+            'constituency' => new ConstituencyResource(
+                Constituency::find($this->constituency_id)
+            ),
+            'locality' => new LocalityResource(
+                Locality::find($this->locality_id)
+            ),
             'postalAddress' => $this->postal_address,
-            'postOffice' => new PostOfficeResource(AddressDetail::where('post_office_id', $this->post_office_id)->first()->postOffice),
+            'postOffice' => new PostOfficeResource(
+                PostOffice::find($this->post_office_id)
+            ),
 
             'street' => $this->street,
             'buildingName' => $this->building_name,

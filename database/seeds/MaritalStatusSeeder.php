@@ -11,6 +11,6 @@ class MaritalStatusSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\MaritalStatus', 10)->create();
+        factory('App\MaritalStatus', 3)->create();
     }
 }

@@ -11,6 +11,6 @@ class MemberLoanSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\MemberLoan', 1000)->create();
+        factory('App\MemberLoan', 200)->create();
     }
 }

@@ -11,6 +11,6 @@ class BusinessSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Business', 150)->create();
+        factory('App\Business', 30)->create();
     }
 }

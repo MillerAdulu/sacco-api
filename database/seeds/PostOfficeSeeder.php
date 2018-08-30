@@ -11,6 +11,6 @@ class PostOfficeSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\PostOffice', 100)->create();
+        factory('App\PostOffice', 30)->create();
     }
 }

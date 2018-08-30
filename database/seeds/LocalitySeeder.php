@@ -11,6 +11,6 @@ class LocalitySeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Locality', 500)->create();
+        factory('App\Locality', 100)->create();
     }
 }

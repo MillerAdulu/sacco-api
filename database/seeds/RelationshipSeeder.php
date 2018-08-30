@@ -11,6 +11,6 @@ class RelationshipSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Relationship', 10)->create();
+        factory('App\Relationship', 3)->create();
     }
 }

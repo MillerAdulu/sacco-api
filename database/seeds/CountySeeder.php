@@ -12,7 +12,7 @@ class CountySeeder extends Seeder
     public function run()
     {
 
-        factory('App\County', 47)->create();
+        factory('App\County', 5)->create();
 
     }
 }

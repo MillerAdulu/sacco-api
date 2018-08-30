@@ -11,6 +11,6 @@ class EmploymentDetailSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\EmploymentDetail', 200)->create();
+        factory('App\EmploymentDetail', 50)->create();
     }
 }

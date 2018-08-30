@@ -12,7 +12,7 @@ class ConstituencySeeder extends Seeder
     public function run()
     {
 
-        factory('App\Constituency', 250)->create();
+        factory('App\Constituency', 20)->create();
 
     }
 }

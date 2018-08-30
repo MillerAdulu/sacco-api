@@ -11,6 +11,6 @@ class NomineeSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Nominee', 1000)->create();
+        factory('App\Nominee', 100)->create();
     }
 }

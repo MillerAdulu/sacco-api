@@ -11,6 +11,6 @@ class JobTitleSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\JobTitle', 100)->create();
+        factory('App\JobTitle', 5)->create();
     }
 }

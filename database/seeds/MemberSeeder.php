@@ -11,6 +11,6 @@ class MemberSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Member', 250)->create();
+        factory('App\Member', 50)->create();
     }
 }

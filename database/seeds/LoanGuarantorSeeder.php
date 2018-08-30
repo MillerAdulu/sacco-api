@@ -11,6 +11,6 @@ class LoanGuarantorSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\LoanGuarantor', 4000)->create();
+        factory('App\LoanGuarantor', 200)->create();
     }
 }

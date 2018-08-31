@@ -40,7 +40,7 @@
      */
     public function store(StoreMember $request)
     {
-      $data = $request->validated();
+      return $data = $request->validated();
 
       $member = new Member();
 

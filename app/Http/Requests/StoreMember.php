@@ -30,7 +30,7 @@ class StoreMember extends FormRequest
             'other_name' => 'nullable|alpha_num',
             'date_of_birth' => 'required|date|before:today',
             'phone_number' => 'required|numeric',
-            'email' => 'nullable|email',
+            'email' => 'required|email',
             'proposed_monthly_contribution' => 'required|numeric',
             'kra_pin' => 'nullable',
             'gender' => 'required|boolean',

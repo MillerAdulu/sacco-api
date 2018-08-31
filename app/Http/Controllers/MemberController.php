@@ -12,8 +12,6 @@
   use Illuminate\Http\Request;
   use App\Http\Requests\StoreMember;
   use App\Http\Requests\UpdateMember;
-  use JWTFactory;
-  use JWTAuth;
   use App\User;
   
   class MemberController extends Controller
@@ -40,7 +38,7 @@
      */
     public function store(StoreMember $request)
     {
-      return $data = $request->validated();
+      $data = $request->validated();
 
       $member = new Member();
 

@@ -33,7 +33,6 @@ class StoreMember extends FormRequest
             'email' => 'required|email',
             'proposed_monthly_contribution' => 'required|numeric',
             'kra_pin' => 'nullable',
-            'gender' => 'required|boolean',
             'marital_status_id' => 'nullable|integer'
         ];
     }

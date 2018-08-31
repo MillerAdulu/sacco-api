@@ -151,7 +151,7 @@
                 ->json(['Error' => 'This user does not exist']);
       }
 
-      $newUserPassword = str_random(8);
+      $newUserPassword = mt_rand(0, 9999);
 
       $resetPass->password = Hash::make($newUserPassword);
       $resetPass->save();

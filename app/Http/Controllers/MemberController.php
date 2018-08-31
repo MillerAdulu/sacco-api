@@ -122,7 +122,7 @@
                 ->json(['Error' => 'This member doesn\'t exist']);
       }
 
-      $newUserPassword = str_random(8);
+      $newUserPassword = mt_rand(0, 9999);
       
       $newUser = new User;
       $newUser->name = $saccoMember->last_name;

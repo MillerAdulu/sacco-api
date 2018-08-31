@@ -28,13 +28,12 @@ class AddressDetailController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  StoreAddressDetail  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreAddressDetail $request)
     {
-        $data = $request->all();
-        
+        return $data = $request->validated();
         $address = new AddressDetail;
         $address->fill($data);
         $address->save();
@@ -61,13 +60,13 @@ class AddressDetailController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  UpdateAddressDetail  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateAddressDetail $request, $id)
     {
-        $updates = $request->all();
+        $updates = $request->validated();
 
         $address = AddressDetail::findOrFail($id);
         $address->fill($updates);

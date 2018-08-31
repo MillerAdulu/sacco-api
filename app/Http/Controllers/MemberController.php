@@ -40,7 +40,7 @@
      */
     public function store(StoreMember $request)
     {
-      $data = $request->all();
+      $data = $request->validated();
 
       $member = new Member();
 
@@ -75,7 +75,7 @@
      */
     public function update(UpdateMember $request, $id)
     {    
-      $data = $request->all();
+      $data = $request->validated();
 
       $member = Member::findOrFail($id);
 

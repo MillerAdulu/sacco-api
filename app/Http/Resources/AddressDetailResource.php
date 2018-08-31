@@ -48,7 +48,6 @@ class AddressDetailResource extends JsonResource
 
             'createdAt' => (string) $this->created_at,
             'updatedAt' => (string) $this->updated_at
-
         ];
     }
 }

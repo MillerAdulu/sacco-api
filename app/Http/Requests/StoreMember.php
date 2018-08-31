@@ -31,7 +31,10 @@ class StoreMember extends FormRequest
             'date_of_birth' => 'required|date|before:today',
             'phone_number' => 'required|numeric',
             'email' => 'nullable|email',
-            'proposed_monthly_contribution' => 'required|numeric'
+            'proposed_monthly_contribution' => 'required|numeric',
+            'kra_pin' => 'nullable',
+            'gender' => 'required|boolean',
+            'marital_status_id' => 'nullable|integer'
         ];
     }
 }

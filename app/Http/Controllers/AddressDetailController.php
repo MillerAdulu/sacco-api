@@ -33,7 +33,7 @@ class AddressDetailController extends Controller
      */
     public function store(StoreAddressDetail $request)
     {
-        return $data = $request->validated();
+        $data = $request->validated();
         $address = new AddressDetail;
         $address->fill($data);
         $address->save();

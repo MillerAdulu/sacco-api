@@ -11,7 +11,9 @@
   |
   */
   
-  Route::post('/register', 'RegisterUserController@register');
-  Route::post('/login', 'LoginUserController@login');
-  Route::post('/checkusername', 'LoginUserController@checkusername');
-  Route::post('/addcontribution', 'MemberContributionController@addMpesaContribution');
+  Route::prefix('saccoapp')->group(function() {
+    Route::post('/register', 'RegisterUserController@register');
+    Route::post('/login', 'LoginUserController@login');
+    Route::post('/checkusername', 'LoginUserController@checkusername');
+    Route::post('/addcontribution', 'MemberContributionController@addMpesaContribution');
+  });

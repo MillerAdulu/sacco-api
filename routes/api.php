@@ -83,4 +83,5 @@
   Route::prefix('/members')->group(function() {
     Route::post('/accounts/register/{member}', 'MemberController@registerAccount');
     Route::post('/accounts/reset/{member}', 'MemberController@resetPassword');
+    Route::post('/account/uploadpassportphoto', 'MemberController@uploadPassportPhoto');
   });

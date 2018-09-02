@@ -2,6 +2,7 @@
   
   namespace App\Http\Controllers;
   
+  use JD\Cloudder\Facades\Cloudder;
   use Illuminate\Support\Facades\Mail;
   use Illuminate\Support\Facades\Hash;
   use App\Http\Resources\MemberCollection;
@@ -98,6 +99,28 @@
     public function destroy($id)
     {
       return Member::destroy($id);
+    }
+
+    public function uploadPassportPhoto(Request $request) {
+      $this->validate($request,[
+        'passport_photo' => 'required|mimes:jpeg,bmp,jpg,png|between:1, 6000',
+      ]);
+
+      $passport_photo = $request->file('passport_photo')->getRealPath();
+
+      Cloudder::upload($passport_photo, null);
+
+      list($width, $height) = getimagesize($passport_photo);
+
+      $image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height]);
+
+      $member = Member::findOrFail($request->member_id);
+      $member->passport_photo = $image_url;
+      $member->save();
+
+      return new MemberResource(
+        $member
+      );
     }
     
     public function registerAccount($member) {

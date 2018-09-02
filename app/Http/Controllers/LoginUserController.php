@@ -19,13 +19,13 @@
           $user
         );
       }
-      return response()->json(['error' => "Wrong Password"], 200);
+      return null;
     }
     
     public function checkusername(Request $request) {
       $user = User::where('email', $request->username)
         ->orWhere('phone_number', $request->username)->first();
-      if(!$user) return response()->json(['No such user!'], 200);
+      if(!$user) return null;
       return $user;
     }
   }

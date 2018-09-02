@@ -1,14 +1,14 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\BusinessNature;
-use App\Http\Resources\BusinessNatureCollection;
-use App\Http\Resources\BusinessNatureResource;
-use Illuminate\Http\Request;
-
-class BusinessNatureController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use App\BusinessNature;
+  use App\Http\Resources\BusinessNatureCollection;
+  use App\Http\Resources\BusinessNatureResource;
+  use Illuminate\Http\Request;
+  
+  class BusinessNatureController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +16,13 @@ class BusinessNatureController extends Controller
      */
     public function index()
     {
-        return new BusinessNatureCollection(
-          BusinessNatureResource::collection(
-            BusinessNature::all()
-          )
-        );
+      return new BusinessNatureCollection(
+        BusinessNatureResource::collection(
+          BusinessNature::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -31,9 +31,9 @@ class BusinessNatureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -42,9 +42,9 @@ class BusinessNatureController extends Controller
      */
     public function show($id)
     {
-        //
+      //
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -54,9 +54,9 @@ class BusinessNatureController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      //
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -65,6 +65,6 @@ class BusinessNatureController extends Controller
      */
     public function destroy($id)
     {
-        //
+      //
     }
-}
+  }

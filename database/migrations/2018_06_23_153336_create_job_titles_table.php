@@ -1,11 +1,11 @@
 <?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateJobTitlesTable extends Migration
-{
+  
+  use Illuminate\Support\Facades\Schema;
+  use Illuminate\Database\Schema\Blueprint;
+  use Illuminate\Database\Migrations\Migration;
+  
+  class CreateJobTitlesTable extends Migration
+  {
     /**
      * Run the migrations.
      *
@@ -13,17 +13,17 @@ class CreateJobTitlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('job_titles', function (Blueprint $table) {
-
-            $table->increments('job_title_id');
-
-            $table->string('job_title', 150);
-
-            $table->timestamps();
-
-        });
+      Schema::create('job_titles', function (Blueprint $table) {
+        
+        $table->increments('job_title_id');
+        
+        $table->string('job_title', 150);
+        
+        $table->timestamps();
+        
+      });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -31,6 +31,6 @@ class CreateJobTitlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_titles');
+      Schema::dropIfExists('job_titles');
     }
-}
+  }

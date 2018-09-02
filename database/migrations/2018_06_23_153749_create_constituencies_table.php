@@ -1,11 +1,11 @@
 <?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateConstituenciesTable extends Migration
-{
+  
+  use Illuminate\Support\Facades\Schema;
+  use Illuminate\Database\Schema\Blueprint;
+  use Illuminate\Database\Migrations\Migration;
+  
+  class CreateConstituenciesTable extends Migration
+  {
     /**
      * Run the migrations.
      *
@@ -13,20 +13,20 @@ class CreateConstituenciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('constituencies', function (Blueprint $table) {
-
-            $table->increments('constituency_id');
-
-            $table->integer('county_id');
-            $table->string('constituency_name', 20);
-
-            $table->timestamps();
-
-            $table->foreign('county_id')->references('county_id')->on('counties');
-
-        });
+      Schema::create('constituencies', function (Blueprint $table) {
+        
+        $table->increments('constituency_id');
+        
+        $table->integer('county_id');
+        $table->string('constituency_name', 20);
+        
+        $table->timestamps();
+        
+        $table->foreign('county_id')->references('county_id')->on('counties');
+        
+      });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -34,6 +34,6 @@ class CreateConstituenciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('constituencies');
+      Schema::dropIfExists('constituencies');
     }
-}
+  }

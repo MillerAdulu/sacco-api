@@ -1,14 +1,14 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\Employer;
-use App\Http\Resources\EmployerCollection;
-use App\Http\Resources\EmployerResource;
-use Illuminate\Http\Request;
-
-class EmployerController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use App\Employer;
+  use App\Http\Resources\EmployerCollection;
+  use App\Http\Resources\EmployerResource;
+  use Illuminate\Http\Request;
+  
+  class EmployerController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +16,13 @@ class EmployerController extends Controller
      */
     public function index()
     {
-        return new EmployerCollection(
-          EmployerResource::collection(
-            Employer::all()
-          )
-        );
+      return new EmployerCollection(
+        EmployerResource::collection(
+          Employer::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -31,9 +31,9 @@ class EmployerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -42,9 +42,9 @@ class EmployerController extends Controller
      */
     public function show($id)
     {
-        //
+      //
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -54,9 +54,9 @@ class EmployerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      //
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -65,6 +65,6 @@ class EmployerController extends Controller
      */
     public function destroy($id)
     {
-        //
+      //
     }
-}
+  }

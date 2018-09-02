@@ -1,11 +1,11 @@
 <?php
-
-namespace App\Http\Resources;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-
-class PostOfficeResource extends JsonResource
-{
+  
+  namespace App\Http\Resources;
+  
+  use Illuminate\Http\Resources\Json\JsonResource;
+  
+  class PostOfficeResource extends JsonResource
+  {
     /**
      * Transform the resource into an array.
      *
@@ -14,17 +14,17 @@ class PostOfficeResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'type' => 'PostOffice',
-            
-            'postOfficeId' => $this->post_office_id,
-
-            'postOfficeCode' => $this->post_office_code,
-            'postOfficeName' => $this->post_office_name,
-
-            'createdAt' => (string) $this->created_at,
-            'updatedAt' => (string) $this->updated_at
-
-        ];
+      return [
+        'type' => 'PostOffice',
+        
+        'postOfficeId' => $this->post_office_id,
+        
+        'postOfficeCode' => $this->post_office_code,
+        'postOfficeName' => $this->post_office_name,
+        
+        'createdAt' => (string) $this->created_at,
+        'updatedAt' => (string) $this->updated_at
+      
+      ];
     }
-}
+  }

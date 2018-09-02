@@ -1,9 +1,9 @@
 <?php
-
-use Illuminate\Database\Seeder;
-
-class LoanGuarantorSeeder extends Seeder
-{
+  
+  use Illuminate\Database\Seeder;
+  
+  class LoanGuarantorSeeder extends Seeder
+  {
     /**
      * Run the database seeds.
      *
@@ -11,6 +11,6 @@ class LoanGuarantorSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\LoanGuarantor', 200)->create();
+      factory('App\LoanGuarantor', 200)->create();
     }
-}
+  }

@@ -1,11 +1,11 @@
 <?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateMaritalStatusesTable extends Migration
-{
+  
+  use Illuminate\Support\Facades\Schema;
+  use Illuminate\Database\Schema\Blueprint;
+  use Illuminate\Database\Migrations\Migration;
+  
+  class CreateMaritalStatusesTable extends Migration
+  {
     /**
      * Run the migrations.
      *
@@ -13,17 +13,17 @@ class CreateMaritalStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('marital_statuses', function (Blueprint $table) {
-
-            $table->increments('marital_status_id');
-
-            $table->string('marital_status', 15);
-
-            $table->timestamps();
-
-        });
+      Schema::create('marital_statuses', function (Blueprint $table) {
+        
+        $table->increments('marital_status_id');
+        
+        $table->string('marital_status', 15);
+        
+        $table->timestamps();
+        
+      });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -31,6 +31,6 @@ class CreateMaritalStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marital_statuses');
+      Schema::dropIfExists('marital_statuses');
     }
-}
+  }

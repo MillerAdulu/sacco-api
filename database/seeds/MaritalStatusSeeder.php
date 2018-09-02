@@ -1,9 +1,9 @@
 <?php
-
-use Illuminate\Database\Seeder;
-
-class MaritalStatusSeeder extends Seeder
-{
+  
+  use Illuminate\Database\Seeder;
+  
+  class MaritalStatusSeeder extends Seeder
+  {
     /**
      * Run the database seeds.
      *
@@ -11,6 +11,6 @@ class MaritalStatusSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\MaritalStatus', 3)->create();
+      factory('App\MaritalStatus', 3)->create();
     }
-}
+  }

@@ -1,15 +1,15 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\Member;
-use App\MemberLoan;
-use App\Http\Resources\MemberLoanResource;
-use App\Http\Resources\MemberLoanCollection;
-use Illuminate\Http\Request;
-
-class MemberLoanController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use App\Member;
+  use App\MemberLoan;
+  use App\Http\Resources\MemberLoanResource;
+  use App\Http\Resources\MemberLoanCollection;
+  use Illuminate\Http\Request;
+  
+  class MemberLoanController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -17,13 +17,13 @@ class MemberLoanController extends Controller
      */
     public function index()
     {
-        return new MemberLoanCollection(
-            MemberLoanResource::collection(
-                MemberLoan::all()
-            )
-        );
+      return new MemberLoanCollection(
+        MemberLoanResource::collection(
+          MemberLoan::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -32,17 +32,17 @@ class MemberLoanController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
-        $memberLoan = new MemberLoan;
-        $memberLoan->fill($data);
-        $memberLoan->save();
-
-        return new MemberLoanResource(
-            $memberLoan
-        );
+      $data = $request->all();
+      
+      $memberLoan = new MemberLoan;
+      $memberLoan->fill($data);
+      $memberLoan->save();
+      
+      return new MemberLoanResource(
+        $memberLoan
+      );
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -51,11 +51,11 @@ class MemberLoanController extends Controller
      */
     public function show($id)
     {
-        return new MemberLoanResource(
-            MemberLoan::findOrFail($id)
-        );
+      return new MemberLoanResource(
+        MemberLoan::findOrFail($id)
+      );
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -65,17 +65,17 @@ class MemberLoanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-
-        $memberLoan = MemberLoan::findOrFail($id);
-        $memberLoan->fill($data);
-        $memberLoan->save();
-
-        return new MemberLoanResource(
-            $memberLoan
-        );
+      $data = $request->all();
+      
+      $memberLoan = MemberLoan::findOrFail($id);
+      $memberLoan->fill($data);
+      $memberLoan->save();
+      
+      return new MemberLoanResource(
+        $memberLoan
+      );
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -84,14 +84,14 @@ class MemberLoanController extends Controller
      */
     public function destroy($id)
     {
-        return MemberLoan::destroy($id);
+      return MemberLoan::destroy($id);
     }
-
+    
     public function memberLoans($member) {
-        return new MemberLoanCollection(
-            MemberLoanResource::collection(
-                Member::findOrFail($member)->loans
-            )
-        );
+      return new MemberLoanCollection(
+        MemberLoanResource::collection(
+          Member::findOrFail($member)->loans
+        )
+      );
     }
-}
+  }

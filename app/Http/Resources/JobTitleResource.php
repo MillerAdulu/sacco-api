@@ -1,11 +1,11 @@
 <?php
-
-namespace App\Http\Resources;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-
-class JobTitleResource extends JsonResource
-{
+  
+  namespace App\Http\Resources;
+  
+  use Illuminate\Http\Resources\Json\JsonResource;
+  
+  class JobTitleResource extends JsonResource
+  {
     /**
      * Transform the resource into an array.
      *
@@ -14,14 +14,14 @@ class JobTitleResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'type' => 'JobTitle',
-            'jobTitleId' => $this->job_title_id,
-            'jobTitle' => $this->job_title,
-
-            'createdAt' => (string) $this->created_at,
-            'updatedAt' => (string) $this->updated_at
-
-        ];
+      return [
+        'type' => 'JobTitle',
+        'jobTitleId' => $this->job_title_id,
+        'jobTitle' => $this->job_title,
+        
+        'createdAt' => (string) $this->created_at,
+        'updatedAt' => (string) $this->updated_at
+      
+      ];
     }
-}
+  }

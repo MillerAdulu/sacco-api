@@ -1,11 +1,11 @@
 <?php
-
-namespace App\Http\Resources;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-
-class LocalityResource extends JsonResource
-{
+  
+  namespace App\Http\Resources;
+  
+  use Illuminate\Http\Resources\Json\JsonResource;
+  
+  class LocalityResource extends JsonResource
+  {
     /**
      * Transform the resource into an array.
      *
@@ -14,16 +14,16 @@ class LocalityResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'type' => 'Locality',
-            'localityId' => $this->locality_id,
-
-            'constituencyId' => $this->constituency_id,
-            'localityName' => $this->locality_name,
-
-            'createdAt' => (string) $this->created_at,
-            'updatedAt' => (string) $this->updated_at
-
-        ];
+      return [
+        'type' => 'Locality',
+        'localityId' => $this->locality_id,
+        
+        'constituencyId' => $this->constituency_id,
+        'localityName' => $this->locality_name,
+        
+        'createdAt' => (string) $this->created_at,
+        'updatedAt' => (string) $this->updated_at
+      
+      ];
     }
-}
+  }

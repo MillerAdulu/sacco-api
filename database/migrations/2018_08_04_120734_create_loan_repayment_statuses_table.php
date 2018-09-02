@@ -1,11 +1,11 @@
 <?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateLoanRepaymentStatusesTable extends Migration
-{
+  
+  use Illuminate\Support\Facades\Schema;
+  use Illuminate\Database\Schema\Blueprint;
+  use Illuminate\Database\Migrations\Migration;
+  
+  class CreateLoanRepaymentStatusesTable extends Migration
+  {
     /**
      * Run the migrations.
      *
@@ -13,15 +13,15 @@ class CreateLoanRepaymentStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('loan_repayment_statuses', function (Blueprint $table) {
-            $table->increments('loan_repayment_status_id');
-
-            $table->string('loan_repayment_status');
-            
-            $table->timestamps();
-        });
+      Schema::create('loan_repayment_statuses', function (Blueprint $table) {
+        $table->increments('loan_repayment_status_id');
+        
+        $table->string('loan_repayment_status');
+        
+        $table->timestamps();
+      });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -29,6 +29,6 @@ class CreateLoanRepaymentStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loan_repayment_statuses');
+      Schema::dropIfExists('loan_repayment_statuses');
     }
-}
+  }

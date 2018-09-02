@@ -1,9 +1,9 @@
 <?php
-
-use Illuminate\Database\Seeder;
-
-class LoanTypeSeeder extends Seeder
-{
+  
+  use Illuminate\Database\Seeder;
+  
+  class LoanTypeSeeder extends Seeder
+  {
     /**
      * Run the database seeds.
      *
@@ -11,6 +11,6 @@ class LoanTypeSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\LoanType', 5)->create();
+      factory('App\LoanType', 5)->create();
     }
-}
+  }

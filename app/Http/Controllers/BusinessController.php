@@ -1,14 +1,14 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\Business;
-use App\Http\Resources\BusinessCollection;
-use App\Http\Resources\BusinessResource;
-use Illuminate\Http\Request;
-
-class BusinessController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use App\Business;
+  use App\Http\Resources\BusinessCollection;
+  use App\Http\Resources\BusinessResource;
+  use Illuminate\Http\Request;
+  
+  class BusinessController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +16,13 @@ class BusinessController extends Controller
      */
     public function index()
     {
-        return new BusinessCollection(
-          BusinessResource::collection(
-            Business::all()
-          )
-        );
+      return new BusinessCollection(
+        BusinessResource::collection(
+          Business::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -31,9 +31,9 @@ class BusinessController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -42,9 +42,9 @@ class BusinessController extends Controller
      */
     public function show($id)
     {
-        //
+      //
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -54,9 +54,9 @@ class BusinessController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      //
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -65,6 +65,6 @@ class BusinessController extends Controller
      */
     public function destroy($id)
     {
-        //
+      //
     }
-}
+  }

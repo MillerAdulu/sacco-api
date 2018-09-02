@@ -1,11 +1,11 @@
 <?php
-
-namespace App\Http\Resources;
-
-use Illuminate\Http\Resources\Json\ResourceCollection;
-
-class NomineeCollection extends ResourceCollection
-{
+  
+  namespace App\Http\Resources;
+  
+  use Illuminate\Http\Resources\Json\ResourceCollection;
+  
+  class NomineeCollection extends ResourceCollection
+  {
     /**
      * Transform the resource collection into an array.
      *
@@ -14,6 +14,6 @@ class NomineeCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+      return parent::toArray($request);
     }
-}
+  }

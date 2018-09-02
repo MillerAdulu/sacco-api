@@ -1,9 +1,9 @@
 <?php
-
-use Illuminate\Database\Seeder;
-
-class CountySeeder extends Seeder
-{
+  
+  use Illuminate\Database\Seeder;
+  
+  class CountySeeder extends Seeder
+  {
     /**
      * Run the database seeds.
      *
@@ -11,8 +11,8 @@ class CountySeeder extends Seeder
      */
     public function run()
     {
-
-        factory('App\County', 5)->create();
-
+      
+      factory('App\County', 5)->create();
+      
     }
-}
+  }

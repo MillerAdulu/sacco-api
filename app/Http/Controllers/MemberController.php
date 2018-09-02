@@ -39,15 +39,15 @@
     public function store(StoreMember $request)
     {
       $data = $request->validated();
-
+      
       $member = new Member();
-
+      
       $member->fill($data);
-
+      
       $member->save();
-
+      
       $this->registerAccount($member->phone_number);
-
+      
       return new MemberResource(
         $member
       );
@@ -72,21 +72,21 @@
      * @return \App\Http\Resources\MemberResource
      */
     public function update(UpdateMember $request, $id)
-    {    
+    {
       $data = $request->validated();
-
+      
       $member = Member::findOrFail($id);
-
+      
       $member->fill($data);
-
+      
       $member->password = Hash::make($request->password);
-
+      
       $member->save();
-
+      
       return new MemberResource(
         $member
       );
-
+      
     }
     
     /**
@@ -101,25 +101,25 @@
     }
     
     public function registerAccount($member) {
-
+      
       $user = User::where('email', $member)
-            ->orWhere('phone_number', $member)
-            ->first();
-
+        ->orWhere('phone_number', $member)
+        ->first();
+      
       if($user) {
         return response()
-                ->json(['Error' => 'This user already exists']);
+          ->json(['Error' => 'This user already exists']);
       }
-
+      
       $saccoMember = Member::where('email', $member)
-                        ->orWhere('phone_number', $member)
-                        ->first();
-
+        ->orWhere('phone_number', $member)
+        ->first();
+      
       if(!$saccoMember) {
         return response()
-                ->json(['Error' => 'This member doesn\'t exist']);
+          ->json(['Error' => 'This member doesn\'t exist']);
       }
-
+      
       $newUserPassword = mt_rand(0, 9999);
       
       $newUser = new User;
@@ -129,35 +129,35 @@
       $newUser->password = Hash::make($newUserPassword);
       $newUser->member_id = $saccoMember->member_id;
       $newUser->save();
-
+      
       $saccoMember->password = $newUserPassword;
-        
+      
       Mail::to($saccoMember->email)->send(new AccountDetailsMail($saccoMember));
       
       return new UserResource(
         $newUser
       );
     }
-
+    
     public function resetPassword($member) {
       $resetPass =  User::where('email', $member)
-            ->orWhere('phone_number', $member)
-            ->first();
-
+        ->orWhere('phone_number', $member)
+        ->first();
+      
       if(!$resetPass) {
         return response()
-                ->json(['Error' => 'This user does not exist']);
+          ->json(['Error' => 'This user does not exist']);
       }
-
+      
       $newUserPassword = mt_rand(0, 9999);
-
+      
       $resetPass->password = Hash::make($newUserPassword);
       $resetPass->save();
       
       $resetPass->password = $newUserPassword;
-
+      
       Mail::to($resetPass->email)->send(new AccountDetailsMail($resetPass));
-
+      
       return new UserResource(
         $resetPass
       );

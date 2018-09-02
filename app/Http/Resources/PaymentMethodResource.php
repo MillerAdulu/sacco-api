@@ -1,11 +1,11 @@
 <?php
-
-namespace App\Http\Resources;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-
-class PaymentMethodResource extends JsonResource
-{
+  
+  namespace App\Http\Resources;
+  
+  use Illuminate\Http\Resources\Json\JsonResource;
+  
+  class PaymentMethodResource extends JsonResource
+  {
     /**
      * Transform the resource into an array.
      *
@@ -14,16 +14,16 @@ class PaymentMethodResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'type' => 'PaymentMethod',
-            
-            'paymentMethodId' => $this->payment_method_id,
-
-            'paymentMethod' => $this->payment_method_name,
-
-            'createdAt' => (string) $this->created_at,
-            'updatedAt' => (string) $this->created_at
-
-        ];
+      return [
+        'type' => 'PaymentMethod',
+        
+        'paymentMethodId' => $this->payment_method_id,
+        
+        'paymentMethod' => $this->payment_method_name,
+        
+        'createdAt' => (string) $this->created_at,
+        'updatedAt' => (string) $this->created_at
+      
+      ];
     }
-}
+  }

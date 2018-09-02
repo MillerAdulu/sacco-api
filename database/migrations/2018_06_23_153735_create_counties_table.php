@@ -1,11 +1,11 @@
 <?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateCountiesTable extends Migration
-{
+  
+  use Illuminate\Support\Facades\Schema;
+  use Illuminate\Database\Schema\Blueprint;
+  use Illuminate\Database\Migrations\Migration;
+  
+  class CreateCountiesTable extends Migration
+  {
     /**
      * Run the migrations.
      *
@@ -13,18 +13,18 @@ class CreateCountiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('counties', function (Blueprint $table) {
-
-            $table->increments('county_id');
-
-            $table->string('county_code', 3)->unique();
-            $table->string('county_name', 20);
-
-            $table->timestamps();
-
-        });
+      Schema::create('counties', function (Blueprint $table) {
+        
+        $table->increments('county_id');
+        
+        $table->string('county_code', 3)->unique();
+        $table->string('county_name', 20);
+        
+        $table->timestamps();
+        
+      });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -32,6 +32,6 @@ class CreateCountiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('counties');
+      Schema::dropIfExists('counties');
     }
-}
+  }

@@ -1,14 +1,14 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\LoanType;
-use App\Http\Resources\LoanTypeCollection;
-use App\Http\Resources\LoanTypeResource;
-
-class LoanTypeController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use Illuminate\Http\Request;
+  use App\LoanType;
+  use App\Http\Resources\LoanTypeCollection;
+  use App\Http\Resources\LoanTypeResource;
+  
+  class LoanTypeController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +16,13 @@ class LoanTypeController extends Controller
      */
     public function index()
     {
-        return new LoanTypeCollection(
-            LoanTypeResource::collection(
-                LoanType::all()
-            )
-        );
+      return new LoanTypeCollection(
+        LoanTypeResource::collection(
+          LoanType::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -31,17 +31,17 @@ class LoanTypeController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
-        $loanType = new LoanType;
-        $loanType->fill($data);
-        $loanType->save();
-
-        return new LoanTypeResource(
-            $loanType
-        );
+      $data = $request->all();
+      
+      $loanType = new LoanType;
+      $loanType->fill($data);
+      $loanType->save();
+      
+      return new LoanTypeResource(
+        $loanType
+      );
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -50,11 +50,11 @@ class LoanTypeController extends Controller
      */
     public function show($id)
     {
-        return new LoanTypeResource(
-            LoanType::find($id)
-        );
+      return new LoanTypeResource(
+        LoanType::find($id)
+      );
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -64,17 +64,17 @@ class LoanTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        
-        $updateLoanType = LoanType::findOrFail($id);
-        $updateLoanType->fill($data);
-        $updateLoanType->save();
-
-        return new LoanTypeResource(
-            $updateLoanType
-        );
+      $data = $request->all();
+      
+      $updateLoanType = LoanType::findOrFail($id);
+      $updateLoanType->fill($data);
+      $updateLoanType->save();
+      
+      return new LoanTypeResource(
+        $updateLoanType
+      );
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -83,6 +83,6 @@ class LoanTypeController extends Controller
      */
     public function destroy($id)
     {
-        return LoanType::destroy($id);
+      return LoanType::destroy($id);
     }
-}
+  }

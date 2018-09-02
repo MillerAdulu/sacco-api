@@ -1,11 +1,11 @@
 <?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateLoanTypesTable extends Migration
-{
+  
+  use Illuminate\Support\Facades\Schema;
+  use Illuminate\Database\Schema\Blueprint;
+  use Illuminate\Database\Migrations\Migration;
+  
+  class CreateLoanTypesTable extends Migration
+  {
     /**
      * Run the migrations.
      *
@@ -13,13 +13,13 @@ class CreateLoanTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('loan_types', function (Blueprint $table) {
-            $table->increments('loan_type_id');
-            $table->string('loan_type_name', 20);
-            $table->timestamps();
-        });
+      Schema::create('loan_types', function (Blueprint $table) {
+        $table->increments('loan_type_id');
+        $table->string('loan_type_name', 20);
+        $table->timestamps();
+      });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -27,6 +27,6 @@ class CreateLoanTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loan_types');
+      Schema::dropIfExists('loan_types');
     }
-}
+  }

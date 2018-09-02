@@ -1,14 +1,14 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\Constituency;
-use App\Http\Resources\ConstituencyCollection;
-use App\Http\Resources\ConstituencyResource;
-use Illuminate\Http\Request;
-
-class ConstituencyController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use App\Constituency;
+  use App\Http\Resources\ConstituencyCollection;
+  use App\Http\Resources\ConstituencyResource;
+  use Illuminate\Http\Request;
+  
+  class ConstituencyController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +16,13 @@ class ConstituencyController extends Controller
      */
     public function index()
     {
-        return new ConstituencyCollection(
-          ConstituencyResource::collection(
-            Constituency::all()
-          )
-        );
+      return new ConstituencyCollection(
+        ConstituencyResource::collection(
+          Constituency::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -31,9 +31,9 @@ class ConstituencyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -42,11 +42,11 @@ class ConstituencyController extends Controller
      */
     public function show($id)
     {
-        return new ConstituencyResource(
-            Constituency::find($id)
-        );
+      return new ConstituencyResource(
+        Constituency::find($id)
+      );
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -56,9 +56,9 @@ class ConstituencyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      //
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -67,14 +67,14 @@ class ConstituencyController extends Controller
      */
     public function destroy($id)
     {
-        //
+      //
     }
-
+    
     public function countyConstituencies($county) {
-        return new ConstituencyCollection(
-            ConstituencyResource::collection(
-                Constituency::where('county_id', $county)->get()
-            )
-        );
+      return new ConstituencyCollection(
+        ConstituencyResource::collection(
+          Constituency::where('county_id', $county)->get()
+        )
+      );
     }
-}
+  }

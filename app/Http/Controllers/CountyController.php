@@ -1,14 +1,14 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\County;
-use App\Http\Resources\CountyCollection;
-use App\Http\Resources\CountyResource;
-use Illuminate\Http\Request;
-
-class CountyController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use App\County;
+  use App\Http\Resources\CountyCollection;
+  use App\Http\Resources\CountyResource;
+  use Illuminate\Http\Request;
+  
+  class CountyController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +16,13 @@ class CountyController extends Controller
      */
     public function index()
     {
-        return new CountyCollection(
-          CountyResource::collection(
-            County::all()
-          )
-        );
+      return new CountyCollection(
+        CountyResource::collection(
+          County::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -31,9 +31,9 @@ class CountyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -42,11 +42,11 @@ class CountyController extends Controller
      */
     public function show($id)
     {
-        return new CountyResource(
-            County::find($id)
-        );
+      return new CountyResource(
+        County::find($id)
+      );
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -56,9 +56,9 @@ class CountyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      //
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -67,6 +67,6 @@ class CountyController extends Controller
      */
     public function destroy($id)
     {
-        //
+      //
     }
-}
+  }

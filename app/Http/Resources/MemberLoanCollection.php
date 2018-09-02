@@ -1,11 +1,11 @@
 <?php
-
-namespace App\Http\Resources;
-
-use Illuminate\Http\Resources\Json\ResourceCollection;
-
-class MemberLoanCollection extends ResourceCollection
-{
+  
+  namespace App\Http\Resources;
+  
+  use Illuminate\Http\Resources\Json\ResourceCollection;
+  
+  class MemberLoanCollection extends ResourceCollection
+  {
     /**
      * Transform the resource collection into an array.
      *
@@ -14,6 +14,6 @@ class MemberLoanCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+      return parent::toArray($request);
     }
-}
+  }

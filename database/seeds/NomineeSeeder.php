@@ -1,9 +1,9 @@
 <?php
-
-use Illuminate\Database\Seeder;
-
-class NomineeSeeder extends Seeder
-{
+  
+  use Illuminate\Database\Seeder;
+  
+  class NomineeSeeder extends Seeder
+  {
     /**
      * Run the database seeds.
      *
@@ -11,6 +11,6 @@ class NomineeSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Nominee', 100)->create();
+      factory('App\Nominee', 100)->create();
     }
-}
+  }

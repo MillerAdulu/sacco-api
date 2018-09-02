@@ -1,15 +1,15 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\LoanRepaymentStatus;
-use App\Http\Resources\LoanRepaymentStatusResource;
-use App\Http\Resources\LoanRepaymentStatusCollection;
-
-use Illuminate\Http\Request;
-
-class LoanRepaymentStatusController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use App\LoanRepaymentStatus;
+  use App\Http\Resources\LoanRepaymentStatusResource;
+  use App\Http\Resources\LoanRepaymentStatusCollection;
+  
+  use Illuminate\Http\Request;
+  
+  class LoanRepaymentStatusController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -17,13 +17,13 @@ class LoanRepaymentStatusController extends Controller
      */
     public function index()
     {
-        return new LoanRepaymentStatusCollection(
-            LoanRepaymentStatusResource::collection(
-                LoanRepaymentStatus::all()
-            )
-        );
+      return new LoanRepaymentStatusCollection(
+        LoanRepaymentStatusResource::collection(
+          LoanRepaymentStatus::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -32,17 +32,17 @@ class LoanRepaymentStatusController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
-        $loanRepaymentStatus = new LoanRepaymentStatus;
-        $loanRepaymentStatus->fill($data);
-        $loanRepaymentStatus->save();
-
-        return new LoanRepaymentStatusResource(
-            $loanRepaymentStatus
-        );
+      $data = $request->all();
+      
+      $loanRepaymentStatus = new LoanRepaymentStatus;
+      $loanRepaymentStatus->fill($data);
+      $loanRepaymentStatus->save();
+      
+      return new LoanRepaymentStatusResource(
+        $loanRepaymentStatus
+      );
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -51,11 +51,11 @@ class LoanRepaymentStatusController extends Controller
      */
     public function show($id)
     {
-        return new LoanRepaymentStatusResource(
-            LoanRepaymentStatus::findOrFail($id)
-        );
+      return new LoanRepaymentStatusResource(
+        LoanRepaymentStatus::findOrFail($id)
+      );
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -65,17 +65,17 @@ class LoanRepaymentStatusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-
-        $loanRepaymentStatus = LoanRepaymentStatus::findOrFail($id);
-        $loanRepaymentStatus->fill($data);
-        $loanRepaymentStatus->save();
-
-        return new LoanRepaymentStatusResource(
-            $loanRepaymentStatus
-        );
+      $data = $request->all();
+      
+      $loanRepaymentStatus = LoanRepaymentStatus::findOrFail($id);
+      $loanRepaymentStatus->fill($data);
+      $loanRepaymentStatus->save();
+      
+      return new LoanRepaymentStatusResource(
+        $loanRepaymentStatus
+      );
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -84,6 +84,6 @@ class LoanRepaymentStatusController extends Controller
      */
     public function destroy($id)
     {
-        return LoanPaymentStatus::destroy($id);
+      return LoanPaymentStatus::destroy($id);
     }
-}
+  }

@@ -1,11 +1,11 @@
 <?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateNomineesTable extends Migration
-{
+  
+  use Illuminate\Support\Facades\Schema;
+  use Illuminate\Database\Schema\Blueprint;
+  use Illuminate\Database\Migrations\Migration;
+  
+  class CreateNomineesTable extends Migration
+  {
     /**
      * Run the migrations.
      *
@@ -13,25 +13,25 @@ class CreateNomineesTable extends Migration
      */
     public function up()
     {
-        Schema::create('nominees', function (Blueprint $table) {
-            $table->increments('nominee_id');
-
-            $table->string('identification_number', 100);
-            $table->string('first_name', 30);
-            $table->string('last_name', 30);
-            $table->string('other_name')->nullable();
-            $table->integer('member_id');
-            $table->integer('relationship_id');
-            $table->string('phone_number');
-            $table->string('email')->nulllable();
-
-            $table->timestamps();
-
-            $table->foreign('relationship_id')->references('relationship_id')->on('relationships');
-            $table->foreign('member_id')->references('member_id')->on('members');
-        });
+      Schema::create('nominees', function (Blueprint $table) {
+        $table->increments('nominee_id');
+        
+        $table->string('identification_number', 100);
+        $table->string('first_name', 30);
+        $table->string('last_name', 30);
+        $table->string('other_name')->nullable();
+        $table->integer('member_id');
+        $table->integer('relationship_id');
+        $table->string('phone_number');
+        $table->string('email')->nulllable();
+        
+        $table->timestamps();
+        
+        $table->foreign('relationship_id')->references('relationship_id')->on('relationships');
+        $table->foreign('member_id')->references('member_id')->on('members');
+      });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -39,6 +39,6 @@ class CreateNomineesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nominees');
+      Schema::dropIfExists('nominees');
     }
-}
+  }

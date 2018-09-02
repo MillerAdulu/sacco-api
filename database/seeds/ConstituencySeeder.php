@@ -1,9 +1,9 @@
 <?php
-
-use Illuminate\Database\Seeder;
-
-class ConstituencySeeder extends Seeder
-{
+  
+  use Illuminate\Database\Seeder;
+  
+  class ConstituencySeeder extends Seeder
+  {
     /**
      * Run the database seeds.
      *
@@ -11,8 +11,8 @@ class ConstituencySeeder extends Seeder
      */
     public function run()
     {
-
-        factory('App\Constituency', 20)->create();
-
+      
+      factory('App\Constituency', 20)->create();
+      
     }
-}
+  }

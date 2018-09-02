@@ -1,14 +1,14 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\Http\Resources\JobTitleCollection;
-use App\Http\Resources\JobTitleResource;
-use App\JobTitle;
-use Illuminate\Http\Request;
-
-class JobTitleController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use App\Http\Resources\JobTitleCollection;
+  use App\Http\Resources\JobTitleResource;
+  use App\JobTitle;
+  use Illuminate\Http\Request;
+  
+  class JobTitleController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +16,13 @@ class JobTitleController extends Controller
      */
     public function index()
     {
-        return new JobTitleCollection(
-          JobTitleResource::collection(
-            JobTitle::all()
-          )
-        );
+      return new JobTitleCollection(
+        JobTitleResource::collection(
+          JobTitle::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -31,9 +31,9 @@ class JobTitleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -42,9 +42,9 @@ class JobTitleController extends Controller
      */
     public function show($id)
     {
-        //
+      //
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -54,9 +54,9 @@ class JobTitleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      //
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -65,6 +65,6 @@ class JobTitleController extends Controller
      */
     public function destroy($id)
     {
-        //
+      //
     }
-}
+  }

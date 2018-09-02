@@ -1,14 +1,14 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\Http\Resources\LocalityCollection;
-use App\Http\Resources\LocalityResource;
-use App\Locality;
-use Illuminate\Http\Request;
-
-class LocalityController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use App\Http\Resources\LocalityCollection;
+  use App\Http\Resources\LocalityResource;
+  use App\Locality;
+  use Illuminate\Http\Request;
+  
+  class LocalityController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +16,13 @@ class LocalityController extends Controller
      */
     public function index()
     {
-        return new LocalityCollection(
-          LocalityResource::collection(
-            Locality::all()
-          )
-        );
+      return new LocalityCollection(
+        LocalityResource::collection(
+          Locality::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -31,9 +31,9 @@ class LocalityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -42,11 +42,11 @@ class LocalityController extends Controller
      */
     public function show($id)
     {
-        return new LocalityResource(
-            Locality::findOrFail($id)
-        );
+      return new LocalityResource(
+        Locality::findOrFail($id)
+      );
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -56,9 +56,9 @@ class LocalityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      //
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -67,14 +67,14 @@ class LocalityController extends Controller
      */
     public function destroy($id)
     {
-        //
+      //
     }
-
+    
     public function constituencyLocalities($constituency) {
-        return new LocalityCollection(
-            LocalityResource::collection(
-                Locality::where('constituency_id', $constituency)->get()
-            )
-        );
+      return new LocalityCollection(
+        LocalityResource::collection(
+          Locality::where('constituency_id', $constituency)->get()
+        )
+      );
     }
-}
+  }

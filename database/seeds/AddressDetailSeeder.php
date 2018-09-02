@@ -1,9 +1,9 @@
 <?php
-
-use Illuminate\Database\Seeder;
-
-class AddressDetailSeeder extends Seeder
-{
+  
+  use Illuminate\Database\Seeder;
+  
+  class AddressDetailSeeder extends Seeder
+  {
     /**
      * Run the database seeds.
      *
@@ -11,6 +11,6 @@ class AddressDetailSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\AddressDetail', 100)->create();
+      factory('App\AddressDetail', 100)->create();
     }
-}
+  }

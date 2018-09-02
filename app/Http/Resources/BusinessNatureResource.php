@@ -1,11 +1,11 @@
 <?php
-
-namespace App\Http\Resources;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-
-class BusinessNatureResource extends JsonResource
-{
+  
+  namespace App\Http\Resources;
+  
+  use Illuminate\Http\Resources\Json\JsonResource;
+  
+  class BusinessNatureResource extends JsonResource
+  {
     /**
      * Transform the resource into an array.
      *
@@ -14,14 +14,14 @@ class BusinessNatureResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'type' => 'BusinessNature',
-            'businessNatureId' => $this->business_nature_id,
-            'natureOfBusiness' => $this->nature_of_business,
-
-            'createdAt' => (string) $this->created_at,
-            'updatedAt' => (string) $this->updated_at
-
-        ];
+      return [
+        'type' => 'BusinessNature',
+        'businessNatureId' => $this->business_nature_id,
+        'natureOfBusiness' => $this->nature_of_business,
+        
+        'createdAt' => (string) $this->created_at,
+        'updatedAt' => (string) $this->updated_at
+      
+      ];
     }
-}
+  }

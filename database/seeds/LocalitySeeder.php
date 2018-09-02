@@ -1,9 +1,9 @@
 <?php
-
-use Illuminate\Database\Seeder;
-
-class LocalitySeeder extends Seeder
-{
+  
+  use Illuminate\Database\Seeder;
+  
+  class LocalitySeeder extends Seeder
+  {
     /**
      * Run the database seeds.
      *
@@ -11,6 +11,6 @@ class LocalitySeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Locality', 100)->create();
+      factory('App\Locality', 100)->create();
     }
-}
+  }

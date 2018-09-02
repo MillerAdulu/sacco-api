@@ -1,12 +1,12 @@
 <?php
-
-namespace App\Http\Resources;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-use App\MemberContribution;
-
-class MemberContributionTotalResource extends JsonResource
-{
+  
+  namespace App\Http\Resources;
+  
+  use Illuminate\Http\Resources\Json\JsonResource;
+  use App\MemberContribution;
+  
+  class MemberContributionTotalResource extends JsonResource
+  {
     /**
      * Transform the resource into an array.
      *
@@ -15,10 +15,10 @@ class MemberContributionTotalResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'type' => 'MemberContributionTotal',
-            'member' => new MemberResource(MemberContribution::where('member_id', $this->member_id)->first()->member),
-            'contributionTotal' => $this->total
-        ];;
+      return [
+        'type' => 'MemberContributionTotal',
+        'member' => new MemberResource(MemberContribution::where('member_id', $this->member_id)->first()->member),
+        'contributionTotal' => $this->total
+      ];;
     }
-}
+  }

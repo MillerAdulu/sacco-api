@@ -1,14 +1,14 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\LoanIssuingStatus;
-use App\Http\Resources\LoanIssuingStatusCollection;
-use App\Http\Resources\LoanIssuingStatusResource;
-use Illuminate\Http\Request;
-
-class LoanIssuingStatusController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use App\LoanIssuingStatus;
+  use App\Http\Resources\LoanIssuingStatusCollection;
+  use App\Http\Resources\LoanIssuingStatusResource;
+  use Illuminate\Http\Request;
+  
+  class LoanIssuingStatusController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +16,13 @@ class LoanIssuingStatusController extends Controller
      */
     public function index()
     {
-        return new LoanIssuingStatusCollection(
-            LoanIssuingStatusResource::collection(
-                LoanIssuingStatus::all()
-            )
-        );
+      return new LoanIssuingStatusCollection(
+        LoanIssuingStatusResource::collection(
+          LoanIssuingStatus::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -31,17 +31,17 @@ class LoanIssuingStatusController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
-        $loanIssuingStatus = new LoanIssuingStatus;
-        $loanIssuingStatus->fill($data);
-        $loanIssuingStatus->save();
-
-        return new LoanIssuingStatusResource(
-            $loanIssuingStatus
-        );
+      $data = $request->all();
+      
+      $loanIssuingStatus = new LoanIssuingStatus;
+      $loanIssuingStatus->fill($data);
+      $loanIssuingStatus->save();
+      
+      return new LoanIssuingStatusResource(
+        $loanIssuingStatus
+      );
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -50,11 +50,11 @@ class LoanIssuingStatusController extends Controller
      */
     public function show($id)
     {
-        return new LoanIssuingStatusResource(
-            LoanIssuingStatus::findOrFail($id)
-        );
+      return new LoanIssuingStatusResource(
+        LoanIssuingStatus::findOrFail($id)
+      );
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -64,17 +64,17 @@ class LoanIssuingStatusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-
-        $loanIssuingStatus = LoanIssuingStatus::findOrFail($id);
-        $loanIssuingStatus->fill($data);
-        $loanIssuingStatus->save();
-
-        return new LoanIssuingStatusResource(
-            $loanIssuingStatus
-        );
+      $data = $request->all();
+      
+      $loanIssuingStatus = LoanIssuingStatus::findOrFail($id);
+      $loanIssuingStatus->fill($data);
+      $loanIssuingStatus->save();
+      
+      return new LoanIssuingStatusResource(
+        $loanIssuingStatus
+      );
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -83,6 +83,6 @@ class LoanIssuingStatusController extends Controller
      */
     public function destroy($id)
     {
-        return LoanIssuingStatus::destroy($id);
+      return LoanIssuingStatus::destroy($id);
     }
-}
+  }

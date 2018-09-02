@@ -1,11 +1,11 @@
 <?php
-
-namespace App\Http\Resources;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-
-class LoanIssuingStatusResource extends JsonResource
-{
+  
+  namespace App\Http\Resources;
+  
+  use Illuminate\Http\Resources\Json\JsonResource;
+  
+  class LoanIssuingStatusResource extends JsonResource
+  {
     /**
      * Transform the resource into an array.
      *
@@ -14,12 +14,12 @@ class LoanIssuingStatusResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'type' => 'LoanIssuingStatus',
-            'loanIssuingStatusId' => $this->loan_issuing_status_id,
-            'loanIssuingStatus' => $this->loan_issuing_status,
-            'createdAt' => (string) $this->created_at,
-            'updatedAt' => (string) $this->updated_at
-        ];
+      return [
+        'type' => 'LoanIssuingStatus',
+        'loanIssuingStatusId' => $this->loan_issuing_status_id,
+        'loanIssuingStatus' => $this->loan_issuing_status,
+        'createdAt' => (string) $this->created_at,
+        'updatedAt' => (string) $this->updated_at
+      ];
     }
-}
+  }

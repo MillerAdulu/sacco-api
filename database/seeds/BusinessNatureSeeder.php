@@ -1,9 +1,9 @@
 <?php
-
-use Illuminate\Database\Seeder;
-
-class BusinessNatureSeeder extends Seeder
-{
+  
+  use Illuminate\Database\Seeder;
+  
+  class BusinessNatureSeeder extends Seeder
+  {
     /**
      * Run the database seeds.
      *
@@ -11,6 +11,6 @@ class BusinessNatureSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\BusinessNature', 5)->create();
+      factory('App\BusinessNature', 5)->create();
     }
-}
+  }

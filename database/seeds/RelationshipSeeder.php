@@ -1,9 +1,9 @@
 <?php
-
-use Illuminate\Database\Seeder;
-
-class RelationshipSeeder extends Seeder
-{
+  
+  use Illuminate\Database\Seeder;
+  
+  class RelationshipSeeder extends Seeder
+  {
     /**
      * Run the database seeds.
      *
@@ -11,6 +11,6 @@ class RelationshipSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Relationship', 3)->create();
+      factory('App\Relationship', 3)->create();
     }
-}
+  }

@@ -1,16 +1,16 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\AddressDetail;
-use App\Http\Resources\AddressDetailCollection;
-use App\Http\Resources\AddressDetailResource;
-use App\Http\Requests\StoreAddressDetail;
-use App\Http\Requests\UpdateAddressDetail;
-use Illuminate\Http\Request;
-
-class AddressDetailController extends Controller
-{
+  
+  namespace App\Http\Controllers;
+  
+  use App\AddressDetail;
+  use App\Http\Resources\AddressDetailCollection;
+  use App\Http\Resources\AddressDetailResource;
+  use App\Http\Requests\StoreAddressDetail;
+  use App\Http\Requests\UpdateAddressDetail;
+  use Illuminate\Http\Request;
+  
+  class AddressDetailController extends Controller
+  {
     /**
      * Display a listing of the resource.
      *
@@ -18,13 +18,13 @@ class AddressDetailController extends Controller
      */
     public function index()
     {
-        return new AddressDetailCollection(
-          AddressDetailResource::collection(
-            AddressDetail::all()
-          )
-        );
+      return new AddressDetailCollection(
+        AddressDetailResource::collection(
+          AddressDetail::all()
+        )
+      );
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -33,17 +33,17 @@ class AddressDetailController extends Controller
      */
     public function store(StoreAddressDetail $request)
     {
-        $data = $request->validated();
-        $address = new AddressDetail;
-        $address->fill($data);
-        $address->save();
-
-        return new AddressDetailResource(
-            $address
-        );
-
+      $data = $request->validated();
+      $address = new AddressDetail;
+      $address->fill($data);
+      $address->save();
+      
+      return new AddressDetailResource(
+        $address
+      );
+      
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -52,11 +52,11 @@ class AddressDetailController extends Controller
      */
     public function show($id)
     {
-        return new AddressDetailResource(
-            AddressDetail::findOrFail($id)
-        );
+      return new AddressDetailResource(
+        AddressDetail::findOrFail($id)
+      );
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -66,17 +66,17 @@ class AddressDetailController extends Controller
      */
     public function update(UpdateAddressDetail $request, $id)
     {
-        $updates = $request->validated();
-
-        $address = AddressDetail::findOrFail($id);
-        $address->fill($updates);
-        $address->save();
-
-        return new AddressDetailResource(
-            $address
-        );
+      $updates = $request->validated();
+      
+      $address = AddressDetail::findOrFail($id);
+      $address->fill($updates);
+      $address->save();
+      
+      return new AddressDetailResource(
+        $address
+      );
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -85,30 +85,30 @@ class AddressDetailController extends Controller
      */
     public function destroy($id)
     {
-        return AddressDetail::destroy($id);
+      return AddressDetail::destroy($id);
     }
-
+    
     public function member_addresses($member) {
-        return new AddressDetailCollection(
-            AddressDetailResource::collection(
-                AddressDetail::where('member_id', $member)->get()
-            )
-        );
+      return new AddressDetailCollection(
+        AddressDetailResource::collection(
+          AddressDetail::where('member_id', $member)->get()
+        )
+      );
     }
-
+    
     public function business_addresses($business) {
-        return new AddressDetailCollection(
-            AddressDetailResource::collection(
-                AddressDetail::where('business_id', $business)->get()
-            )
-        );
+      return new AddressDetailCollection(
+        AddressDetailResource::collection(
+          AddressDetail::where('business_id', $business)->get()
+        )
+      );
     }
-
+    
     public function employer_addresses($employer) {
-        return new AddressDetailCollection(
-            AddressDetailResource::collection(
-                AddressDetail::where('employer_id', $employer)->get()
-            )
-        );
+      return new AddressDetailCollection(
+        AddressDetailResource::collection(
+          AddressDetail::where('employer_id', $employer)->get()
+        )
+      );
     }
-}
+  }

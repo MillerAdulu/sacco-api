@@ -1,13 +1,13 @@
 <?php
-
-namespace App\Http\Resources;
-
-use Illuminate\Http\Resources\Json\JsonResource;
-use JWTFactory;
-use JWTAuth;
-
-class UserResource extends JsonResource
-{
+  
+  namespace App\Http\Resources;
+  
+  use Illuminate\Http\Resources\Json\JsonResource;
+  use JWTFactory;
+  use JWTAuth;
+  
+  class UserResource extends JsonResource
+  {
     /**
      * Transform the resource into an array.
      *
@@ -15,16 +15,16 @@ class UserResource extends JsonResource
      * @return array
      */
     public function toArray($request)
-    {    
-        return [
-            'type' => 'User',
-            'userId' => $this->id,
-            'userName' => $this->name,
-            'email' => $this->email,
-            'phoneNumber' => $this->phone_number,
-            'accessLevel' => $this->access_level,
-            'token' => JWTAuth::fromUser($this),
-            'memberId' => $this->member_id
-        ];
+    {
+      return [
+        'type' => 'User',
+        'userId' => $this->id,
+        'userName' => $this->name,
+        'email' => $this->email,
+        'phoneNumber' => $this->phone_number,
+        'accessLevel' => $this->access_level,
+        'token' => JWTAuth::fromUser($this),
+        'memberId' => $this->member_id
+      ];
     }
-}
+  }

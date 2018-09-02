@@ -1,9 +1,9 @@
 <?php
-
-use Illuminate\Database\Seeder;
-
-class MemberContributionSeeder extends Seeder
-{
+  
+  use Illuminate\Database\Seeder;
+  
+  class MemberContributionSeeder extends Seeder
+  {
     /**
      * Run the database seeds.
      *
@@ -11,6 +11,6 @@ class MemberContributionSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\MemberContribution', 300)->create();
+      factory('App\MemberContribution', 300)->create();
     }
-}
+  }

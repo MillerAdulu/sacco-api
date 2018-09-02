@@ -1,11 +1,11 @@
 <?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateMemberContributionsTable extends Migration
-{
+  
+  use Illuminate\Support\Facades\Schema;
+  use Illuminate\Database\Schema\Blueprint;
+  use Illuminate\Database\Migrations\Migration;
+  
+  class CreateMemberContributionsTable extends Migration
+  {
     /**
      * Run the migrations.
      *
@@ -13,22 +13,22 @@ class CreateMemberContributionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('member_contributions', function (Blueprint $table) {
-            $table->increments('member_contribution_id');
-
-            $table->integer('member_id');
-            $table->integer('payment_method_id');
-            $table->decimal('contribution_amount');
-            $table->string('comment')->nullable();
-            
-            $table->timestamps();
-
-            $table->index('member_id');
-            $table->foreign('member_id')->references('member_id')->on('members');
-            $table->foreign('payment_method_id')->references('payment_method_id')->on('payment_methods');
-        });
+      Schema::create('member_contributions', function (Blueprint $table) {
+        $table->increments('member_contribution_id');
+        
+        $table->integer('member_id');
+        $table->integer('payment_method_id');
+        $table->decimal('contribution_amount');
+        $table->string('comment')->nullable();
+        
+        $table->timestamps();
+        
+        $table->index('member_id');
+        $table->foreign('member_id')->references('member_id')->on('members');
+        $table->foreign('payment_method_id')->references('payment_method_id')->on('payment_methods');
+      });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -36,6 +36,6 @@ class CreateMemberContributionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('member_contributions');
+      Schema::dropIfExists('member_contributions');
     }
-}
+  }

@@ -1,11 +1,11 @@
 <?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreatePaymentMethodsTable extends Migration
-{
+  
+  use Illuminate\Support\Facades\Schema;
+  use Illuminate\Database\Schema\Blueprint;
+  use Illuminate\Database\Migrations\Migration;
+  
+  class CreatePaymentMethodsTable extends Migration
+  {
     /**
      * Run the migrations.
      *
@@ -13,17 +13,17 @@ class CreatePaymentMethodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('payment_methods', function (Blueprint $table) {
-
-            $table->increments('payment_method_id');
-
-            $table->string('payment_method_name', 30);
-
-            $table->timestamps();
-
-        });
+      Schema::create('payment_methods', function (Blueprint $table) {
+        
+        $table->increments('payment_method_id');
+        
+        $table->string('payment_method_name', 30);
+        
+        $table->timestamps();
+        
+      });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -31,6 +31,6 @@ class CreatePaymentMethodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment_methods');
+      Schema::dropIfExists('payment_methods');
     }
-}
+  }

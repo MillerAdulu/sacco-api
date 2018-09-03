@@ -12,6 +12,7 @@
         "fzaninotto/faker": "^1.4",
         "guzzlehttp/guzzle": "^6.3",
         "jrm2k6/cloudder": "^0.6.0",
+        "kabangi/mpesa": "^3.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
         "sentry/sentry-laravel": "^0.9.2",

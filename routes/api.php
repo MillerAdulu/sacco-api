@@ -59,6 +59,7 @@
   Route::prefix('membercontributions')->group(function() {
     Route::get('/members/{member}', 'MemberContributionController@memberContributions');
     Route::get('/members/accounts/all', 'MemberContributionController@allAccounts');
+    Route::post('/account/lipanampesa', 'MemberContributionController@lipaNaMpesa');
   });
   
   Route::prefix('/loans')->group(function() {

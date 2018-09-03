@@ -33,7 +33,7 @@
         
         'gender' => $this->gender,
         'passportPhoto' => $this->passport_photo,
-        'maritalStatus' => new MaritalStatusResource(MaritalStatus::find(
+        'maritalStatusInfo' => new MaritalStatusResource(MaritalStatus::find(
           $this->marital_status_id
         )),
         

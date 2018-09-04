@@ -150,7 +150,7 @@ class MemberContributionController extends Controller
         $mpesaData = $request->Body;
         $contributionResults = collect($mpesaData["stkCallback"]["CallbackMetadata"]["Item"])->flatten();
 
-        $member = Member::where('phone_number', '+' . $contributionResults[8])->firstOrFail();
+        $member = Member::where('phone_number', $contributionResults[8])->firstOrFail();
 
         $stkContribution = new MemberContribution;
         $stkContribution->member_id = $member->member_id;

@@ -5,7 +5,8 @@
   use Illuminate\Http\Resources\Json\JsonResource;
   use JWTFactory;
   use JWTAuth;
-  
+  use App\Member;
+
   class UserResource extends JsonResource
   {
     /**
@@ -16,6 +17,8 @@
      */
     public function toArray($request)
     {
+      $member = Member::find($this->member_id) ? new MemberResource(Member::find($this->member_id)) : null;
+
       return [
         'type' => 'User',
         'userId' => $this->id,
@@ -24,7 +27,7 @@
         'phoneNumber' => $this->phone_number,
         'accessLevel' => $this->access_level,
         'token' => JWTAuth::fromUser($this),
-        'memberId' => $this->member_id
+        'member' => $member
       ];
     }
   }

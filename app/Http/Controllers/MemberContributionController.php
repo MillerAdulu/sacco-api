@@ -124,16 +124,16 @@ class MemberContributionController extends Controller
     public function lipaNaMpesa(Request $request)
     {
         $paymentInfo = $request->all();
-
+        
         $mpesa = new Mpesa();
 
         try {
 
             $response = $mpesa->STKPush([
-                'amount' => $paymentInfo->contribution_amount,
+                'amount' => $paymentInfo['contribution_amount'],
                 'transactionDesc' => 'Testing',
-                'phoneNumber' => $paymentInfo->phone_number,
-                'accountReference' => $paymentInfo->member_id,
+                'phoneNumber' => $paymentInfo['phone_number'],
+                'accountReference' => $paymentInfo['member_id'],
             ]);
 
             return json_encode($response);
@@ -141,7 +141,7 @@ class MemberContributionController extends Controller
         } catch (Exception $e) {
 
             return json_encode($e->getMessage());
-
+            
         }
     }
 

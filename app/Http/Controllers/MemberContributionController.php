@@ -148,8 +148,11 @@ class MemberContributionController extends Controller
     public function stkMpesaContribution(Request $request)
     {
         $mpesaData = $request->Body;
-        $contributionResults = collect($mpesaData["stkCallback"]["CallbackMetadata"]["Item"])->flatten();
+        if(!$mpesaData["stkCallback"]["ResultCode"] == 0) {
+            return;
+        }
 
+        $contributionResults = collect($mpesaData["stkCallback"]["CallbackMetadata"]["Item"])->flatten();
         $member = Member::where('phone_number', $contributionResults[8])->firstOrFail();
 
         $stkContribution = new MemberContribution;

@@ -30,7 +30,7 @@
     'postoffices' => 'PostOfficeController',
     'nominees' => 'NomineeController',
     'relationships' => 'RelationshipController',
-    'membercontributions' => 'MemberContributionController'
+    'memberdeposits' => 'MemberDepositController'
   
   ]);
   
@@ -56,10 +56,10 @@
     Route::get('/members/{member}', 'NomineeController@memberNominees');
   });
   
-  Route::prefix('membercontributions')->group(function() {
-    Route::get('/members/{member}', 'MemberContributionController@memberContributions');
-    Route::get('/members/accounts/all', 'MemberContributionController@allAccounts');
-    Route::post('/account/lipanampesa', 'MemberContributionController@lipaNaMpesa');
+  Route::prefix('memberdeposits')->group(function() {
+    Route::get('/members/{member}', 'MemberDepositController@memberDeposits');
+    Route::get('/members/accounts/all', 'MemberDepositController@allAccounts');
+    Route::post('/account/lipanampesa', 'MemberDepositController@lipaNaMpesa');
   });
   
   Route::prefix('/loans')->group(function() {
@@ -77,7 +77,7 @@
   
   Route::prefix('/dashboard')->group(function() {
     Route::get('/members', 'DashboardController@members');
-    Route::get('/contributions', 'DashboardController@contributions');
+    Route::get('/deposits', 'DashboardController@deposits');
     Route::get('/memberloans', 'DashboardController@memberLoans');
   });
   

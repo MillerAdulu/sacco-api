@@ -15,6 +15,6 @@
     Route::post('/register', 'RegisterUserController@register');
     Route::post('/login', 'LoginUserController@login');
     Route::post('/checkusername', 'LoginUserController@checkusername');
-    Route::post('/addcontribution', 'MemberContributionController@addMpesaContribution');
-    Route::post('/stkcontribution', 'MemberContributionController@stkMpesaContribution');
+    Route::post('/adddeposit', 'MemberDepositController@addMpesaDeposit');
+    Route::post('/stkdeposit', 'MemberDepositController@stkMpesaDeposit');
   });

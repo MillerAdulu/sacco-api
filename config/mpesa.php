@@ -99,7 +99,7 @@ return [
         | API on completion or failure of a push transaction.
         |
         */
-        'callback' => 'https://sedcapi.herokuapp.com/saccoapp/stkcontribution',
+        'callback' => 'https://sedcapi.herokuapp.com/saccoapp/stkdeposit',
         
         /*
         |--------------------------------------------------------------------------

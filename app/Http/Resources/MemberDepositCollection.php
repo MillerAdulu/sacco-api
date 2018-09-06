@@ -4,7 +4,7 @@
   
   use Illuminate\Http\Resources\Json\ResourceCollection;
   
-  class MemberContributionCollection extends ResourceCollection
+  class MemberDepositCollection extends ResourceCollection
   {
     /**
      * Transform the resource collection into an array.

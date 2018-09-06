@@ -3,6 +3,8 @@
   namespace App\Http\Resources;
   
   use App\MemberDeposit;
+  use App\PaymentMethod;
+  use App\Member;
   use Illuminate\Http\Resources\Json\JsonResource;
   
   class MemberDepositResource extends JsonResource
@@ -18,8 +20,12 @@
       return [
         'type' => 'MemberDeposit',
         'memberDepositId' => $this->member_deposit_id,
-        'member' => new MemberResource(MemberDeposit::where('member_id', $this->member_id)->first()->member),
-        'paymentMethod' => new PaymentMethodResource(MemberDeposit::where('payment_method_id', $this->payment_method_id)->first()->paymentMethod),
+        'member' => new MemberResource(
+          Member::find($this->member_id)
+        ),
+        'paymentMethod' => new PaymentMethodResource(
+          PaymentMethod::find($this->payment_method_id)
+        ),
         'depositAmount' => $this->deposit_amount,
         'comment' => $this->comment,
         'createdAt' => (string) $this->created_at,

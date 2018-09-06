@@ -4,7 +4,7 @@
   
   use Illuminate\Http\Request;
   use App\Member;
-  use App\MemberContribution;
+  use App\MemberDeposit;
   use App\MemberLoan;
   
   class DashboardController extends Controller
@@ -14,7 +14,7 @@
     }
     
     public function contributions() {
-      return MemberContribution::sum('contribution_amount');
+      return MemberDeposit::sum('contribution_amount');
     }
     
     public function memberLoans() {

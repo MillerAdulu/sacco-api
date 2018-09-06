@@ -4,7 +4,7 @@
   use Illuminate\Database\Schema\Blueprint;
   use Illuminate\Database\Migrations\Migration;
   
-  class CreateMemberContributionsTable extends Migration
+  class CreateMemberDepositsTable extends Migration
   {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@
      */
     public function up()
     {
-      Schema::create('member_contributions', function (Blueprint $table) {
-        $table->increments('member_contribution_id');
+      Schema::create('member_deposits', function (Blueprint $table) {
+        $table->increments('member_deposit_id');
         
         $table->integer('member_id');
         $table->integer('payment_method_id');
-        $table->decimal('contribution_amount');
+        $table->decimal('deposit_amount');
         $table->string('comment')->nullable();
         
         $table->timestamps();
@@ -36,6 +36,6 @@
      */
     public function down()
     {
-      Schema::dropIfExists('member_contributions');
+      Schema::dropIfExists('member_deposits');
     }
   }

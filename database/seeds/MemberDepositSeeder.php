@@ -2,7 +2,7 @@
   
   use Illuminate\Database\Seeder;
   
-  class MemberContributionSeeder extends Seeder
+  class MemberDepositSeeder extends Seeder
   {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@
      */
     public function run()
     {
-      factory('App\MemberContribution', 300)->create();
+      factory('App\MemberDeposit', 300)->create();
     }
   }

@@ -4,12 +4,12 @@
   
   use Illuminate\Database\Eloquent\Model;
   
-  class MemberContribution extends Model
+  class MemberDeposit extends Model
   {
-    protected $primaryKey = 'member_contribution_id';
+    protected $primaryKey = 'member_deposit_id';
     
     protected $fillable = [
-      'member_id', 'contribution_amount', 'payment_method_id'
+      'member_id', 'deposit_amount', 'payment_method_id'
     ];
     
     public function member() {

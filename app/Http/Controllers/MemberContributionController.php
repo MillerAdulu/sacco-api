@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\MemberContributionCollection;
-use App\Http\Resources\MemberContributionResource;
-use App\Http\Resources\MemberContributionTotalResource;
+use App\Http\Resources\MemberDepositResource;
+use App\Http\Resources\MemberDepositTotalResource;
 use App\Member;
-use App\MemberContribution;
+use App\MemberDeposit;
 use Illuminate\Http\Request;
 use Kabangi\Mpesa\Init as Mpesa;
 
@@ -20,8 +20,8 @@ class MemberContributionController extends Controller
     public function index()
     {
         return new MemberContributionCollection(
-            MemberContributionResource::collection(
-                MemberContribution::latest()->get()
+            MemberDepositResource::collection(
+                MemberDeposit::latest()->get()
             )
         );
     }
@@ -36,12 +36,12 @@ class MemberContributionController extends Controller
     {
         $data = $request->all();
 
-        $memberContribution = new MemberContribution;
+        $memberContribution = new MemberDeposit;
 
         $memberContribution->fill($data);
         $memberContribution->save();
 
-        return new MemberContributionResource(
+        return new MemberDepositResource(
             $memberContribution
         );
     }
@@ -54,8 +54,8 @@ class MemberContributionController extends Controller
      */
     public function show($id)
     {
-        return new MemberContributionResource(
-            MemberContribution::find($id)
+        return new MemberDepositResource(
+            MemberDeposit::find($id)
         );
     }
 
@@ -85,8 +85,8 @@ class MemberContributionController extends Controller
     public function memberContributions($member)
     {
         return new MemberContributionCollection(
-            MemberContributionResource::collection(
-                MemberContribution::where('member_id', $member)->get()
+            MemberDepositResource::collection(
+                MemberDeposit::where('member_id', $member)->get()
             )
         );
     }
@@ -94,8 +94,8 @@ class MemberContributionController extends Controller
     public function allAccounts()
     {
         return new MemberContributionCollection(
-            MemberContributionTotalResource::collection(
-                MemberContribution::select('member_id', \DB::raw('SUM(contribution_amount) AS total'))->groupBy('member_id')->get()
+            MemberDepositTotalResource::collection(
+                MemberDeposit::select('member_id', \DB::raw('SUM(contribution_amount) AS total'))->groupBy('member_id')->get()
             )
         );
     }
@@ -108,7 +108,7 @@ class MemberContributionController extends Controller
             $contributionDetails['BillRefNumber']
         );
 
-        $newContribution = new MemberContribution;
+        $newContribution = new MemberDeposit;
 
         $newContribution->contribution_amount = $contributionDetails['TransAmount'];
         $newContribution->payment_method_id = 1;
@@ -116,7 +116,7 @@ class MemberContributionController extends Controller
         $newContribution->member_id = $member->member_id;
         $newContribution->save();
 
-        return new MemberContributionResource(
+        return new MemberDepositResource(
             $newContribution
         );
     }
@@ -155,14 +155,14 @@ class MemberContributionController extends Controller
         $contributionResults = collect($mpesaData["stkCallback"]["CallbackMetadata"]["Item"])->flatten();
         $member = Member::where('phone_number', $contributionResults[8])->firstOrFail();
 
-        $stkContribution = new MemberContribution;
+        $stkContribution = new MemberDeposit;
         $stkContribution->member_id = $member->member_id;
         $stkContribution->payment_method_id = 1;
         $stkContribution->contribution_amount = $contributionResults[1];
         $stkContribution->comment = $contributionResults[3];
         $stkContribution->save();
 
-        return new MemberContributionResource(
+        return new MemberDepositResource(
             $stkContribution
         );
     }

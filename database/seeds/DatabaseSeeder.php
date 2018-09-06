@@ -43,7 +43,7 @@
       
       $this->call(NomineeSeeder::class);
       
-      $this->call(MemberContributionSeeder::class);
+      $this->call(MemberDepositSeeder::class);
       
       $this->call(LoanRepaymentStatusSeeder::class);
       

@@ -66,7 +66,7 @@
     public function member_contributions() {
       
       return $this->hasMany(
-        MemberContribution::class,
+        MemberDeposit::class,
         'member_id'
       );
     }

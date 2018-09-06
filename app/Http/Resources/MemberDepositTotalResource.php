@@ -3,9 +3,9 @@
   namespace App\Http\Resources;
   
   use Illuminate\Http\Resources\Json\JsonResource;
-  use App\MemberContribution;
+  use App\MemberDeposit;
   
-  class MemberContributionTotalResource extends JsonResource
+  class MemberDepositTotalResource extends JsonResource
   {
     /**
      * Transform the resource into an array.
@@ -17,7 +17,7 @@
     {
       return [
         'type' => 'MemberContributionTotal',
-        'member' => new MemberResource(MemberContribution::where('member_id', $this->member_id)->first()->member),
+        'member' => new MemberResource(MemberDeposit::where('member_id', $this->member_id)->first()->member),
         'contributionTotal' => $this->total
       ];;
     }

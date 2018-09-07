@@ -13,8 +13,8 @@
       return Member::count();
     }
     
-    public function contributions() {
-      return MemberDeposit::sum('contribution_amount');
+    public function deposits() {
+      return MemberDeposit::sum('deposit_amount');
     }
     
     public function memberLoans() {

@@ -31,7 +31,15 @@
      */
     public function store(Request $request)
     {
-      //
+      $jobTitle = new JobTitle;
+      $jobTitle->fill(
+        $request->all()
+      );
+      $jobTitle->save();
+
+      return new JobTitleResource(
+        $jobTitle
+      );
     }
     
     /**
@@ -42,7 +50,9 @@
      */
     public function show($id)
     {
-      //
+      return new JobTitleResource(
+        JobTitle::find($id)
+      );
     }
     
     /**
@@ -54,7 +64,17 @@
      */
     public function update(Request $request, $id)
     {
-      //
+      $jobTitle = JobTitle::find($id);
+
+      $jobTitle->fill(
+        $request->all()
+      );
+
+      $jobTitle->save();
+
+      return new JobTitleResource(
+        $jobTitle
+      );
     }
     
     /**
@@ -65,6 +85,6 @@
      */
     public function destroy($id)
     {
-      //
+      return JobTitle::destroy($id);
     }
   }

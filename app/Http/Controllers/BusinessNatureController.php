@@ -31,7 +31,16 @@
      */
     public function store(Request $request)
     {
-      //
+      $businessNature = new BusinessNature;
+      $businessNature->fill(
+        $request->all()
+      );
+
+      $businessNature->save();
+
+      return new BusinessNatureResource(
+        $businessNature
+      );
     }
     
     /**
@@ -42,7 +51,9 @@
      */
     public function show($id)
     {
-      //
+      return new BusinessNatureResource(
+        BusinessNature::find($id)
+      );
     }
     
     /**
@@ -54,7 +65,17 @@
      */
     public function update(Request $request, $id)
     {
-      //
+      $businessNature = BusinessNature::find($id);
+
+      $businessNature->fill(
+        $request->all()
+      );
+
+      $businessNature->save();
+
+      return new BusinessNatureResource(
+        $businessNature
+      );
     }
     
     /**
@@ -65,6 +86,6 @@
      */
     public function destroy($id)
     {
-      //
+      return BusinessNature::destroy($id);
     }
   }

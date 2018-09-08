@@ -31,7 +31,16 @@
      */
     public function store(Request $request)
     {
-      //
+      $locality = new Locality;
+      $locality->fill(
+        $request->all()
+      );
+
+      $locality->save();
+
+      return new LocalityResource(
+        $locality
+      );
     }
     
     /**
@@ -56,7 +65,15 @@
      */
     public function update(Request $request, $id)
     {
-      //
+      $locality = Locality::find($id);
+      $locality->fill(
+        $request->all()
+      );
+      $locality->save();
+
+      return new LocalityResource(
+        $locality
+      );
     }
     
     /**
@@ -67,7 +84,7 @@
      */
     public function destroy($id)
     {
-      //
+      return Locality::destroy($id);
     }
     
     public function constituencyLocalities($constituency) {

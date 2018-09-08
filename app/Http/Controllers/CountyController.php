@@ -31,7 +31,17 @@
      */
     public function store(Request $request)
     {
-      //
+      $county = new County;
+
+      $county->fill(
+        $request->all()
+      );
+
+      $county->save();
+
+      return new CountyResource(
+        $county
+      );
     }
     
     /**
@@ -56,7 +66,15 @@
      */
     public function update(Request $request, $id)
     {
-      //
+      $county = County::find($id);
+      $county->fill(
+        $request->all()
+      );
+      $county->save();
+
+      return new CountyResource(
+        $county
+      );
     }
     
     /**
@@ -67,6 +85,6 @@
      */
     public function destroy($id)
     {
-      //
+      return County::destroy($id);
     }
   }

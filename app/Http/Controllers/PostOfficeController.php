@@ -31,7 +31,17 @@
      */
     public function store(Request $request)
     {
-      //
+      $postOffice = new PostOffice;
+
+      $postOffice->fill(
+        $request->all()
+      );
+
+      $postOffice->save();
+
+      return new PostOfficeResource(
+        $postOffice
+      );
     }
     
     /**
@@ -42,7 +52,9 @@
      */
     public function show($id)
     {
-      //
+      return new PostOfficeResource(
+        PostOffice::find($id)
+      );
     }
     
     /**
@@ -54,7 +66,17 @@
      */
     public function update(Request $request, $id)
     {
-      //
+      $postOffice = PostOffice::find($id);
+
+      $postOffice->fill(
+        $request->all()
+      );
+
+      $postOffice->save();
+
+      return new PostOfficeResource(
+        $postOffice
+      );
     }
     
     /**
@@ -65,6 +87,6 @@
      */
     public function destroy($id)
     {
-      //
+      return PostOffice::destroy($id);
     }
   }

@@ -31,7 +31,17 @@
      */
     public function store(Request $request)
     {
-      //
+      $constituency = new Constituency;
+
+      $constituency->fill(
+        $request->all()
+      );
+
+      $constituency->save();
+
+      return new ConstituencyResource(
+        $constituency
+      );
     }
     
     /**
@@ -56,7 +66,17 @@
      */
     public function update(Request $request, $id)
     {
-      //
+      $constituency = Constituency::find($id);
+
+      $constituency->fill(
+        $request->all()
+      );
+
+      $constituency->save();
+
+      return new ConstituencyResource(
+        $constituency
+      );
     }
     
     /**
@@ -67,7 +87,7 @@
      */
     public function destroy($id)
     {
-      //
+      return Constituency::destroy($id);
     }
     
     public function countyConstituencies($county) {

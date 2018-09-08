@@ -31,7 +31,17 @@
      */
     public function store(Request $request)
     {
-      //
+      $employer = new Employer;
+
+      $employer->fill(
+        $request->all()
+      );
+
+      $employer->save();
+
+      return new EmployerResource(
+        $employer
+      );
     }
     
     /**
@@ -42,7 +52,9 @@
      */
     public function show($id)
     {
-      //
+      return new EmployerResource(
+        Employer::find($id)
+      );
     }
     
     /**
@@ -54,7 +66,17 @@
      */
     public function update(Request $request, $id)
     {
-      //
+      $employer = Employer::find($id);
+
+      $employer->fill(
+        $request->all()
+      );
+
+      $employer->save();
+
+      return new EmployerResource(
+        $employer
+      );
     }
     
     /**
@@ -65,6 +87,6 @@
      */
     public function destroy($id)
     {
-      //
+      return Employer::destroy($id);
     }
   }

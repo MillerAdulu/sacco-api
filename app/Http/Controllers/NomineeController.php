@@ -64,7 +64,17 @@
      */
     public function update(Request $request, $id)
     {
-      //
+      $nominee = Nominee::find($id);
+
+      $nominee->fill(
+        $request->all()
+      );
+
+      $nominee->save();
+
+      return new NomineeResource(
+        $nominee
+      );
     }
     
     /**
@@ -75,7 +85,7 @@
      */
     public function destroy($id)
     {
-      //
+      return Nominee::destroy($id);
     }
     
     public function memberNominees($member) {

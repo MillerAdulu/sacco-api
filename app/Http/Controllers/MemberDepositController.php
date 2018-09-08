@@ -68,7 +68,17 @@ class MemberDepositController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $memberDeposit = MemberDeposit::find($id);
+
+        $memberDeposit->fill(
+            $request->all()
+        );
+
+        $memberDeposit->save();
+
+        return new MemberDepositResource(
+            $memberDeposit
+        );
     }
 
     /**
@@ -79,7 +89,7 @@ class MemberDepositController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return MemberDeposit::destroy($id);
     }
 
     public function memberDeposits($member)

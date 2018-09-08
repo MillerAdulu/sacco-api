@@ -31,7 +31,15 @@
      */
     public function store(Request $request)
     {
-      //
+      $maritalStatus = new MaritalStatus;
+      $maritalStatus->fill(
+        $request->all()
+      );
+      $maritalStatus->save();
+
+      return new MaritalStatusResource(
+        $maritalStatus
+      );
     }
     
     /**
@@ -42,7 +50,9 @@
      */
     public function show($id)
     {
-      //
+      return new MaritalStatusResource(
+        MaritalStatus::find($id)
+      );
     }
     
     /**
@@ -54,7 +64,16 @@
      */
     public function update(Request $request, $id)
     {
-      //
+      $maritalStatus = MaritalStatus::find($id);
+      $maritalStatus->fill(
+        $request->all()
+      );
+
+      $maritalStatus->save();
+
+      return new MaritalStatusResource(
+        $maritalStatus
+      );
     }
     
     /**
@@ -65,6 +84,6 @@
      */
     public function destroy($id)
     {
-      //
+      return MaritalStatus::find($id);
     }
   }

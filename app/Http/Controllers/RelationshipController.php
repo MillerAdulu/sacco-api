@@ -31,7 +31,17 @@
      */
     public function store(Request $request)
     {
-      //
+      $relationship = new Relationship;
+      
+      $relationship->fill(
+        $request->all()
+      );
+
+      $relationship->save();
+
+      return new RelationshipResource(
+        $relationship
+      );
     }
     
     /**
@@ -42,7 +52,9 @@
      */
     public function show($id)
     {
-      //
+      return new RelationshipResource(
+        Relationship::find($id)
+      );
     }
     
     /**
@@ -54,7 +66,17 @@
      */
     public function update(Request $request, $id)
     {
-      //
+      $relationship = Relationship::find($id);
+
+      $relationship->fill(
+        $request->all()
+      );
+
+      $relationship->save();
+
+      return new RelationshipResource(
+        $relationship
+      );
     }
     
     /**
@@ -65,6 +87,6 @@
      */
     public function destroy($id)
     {
-      //
+      return Relationship::destroy($id);
     }
   }

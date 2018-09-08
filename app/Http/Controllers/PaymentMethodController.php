@@ -31,7 +31,15 @@
      */
     public function store(Request $request)
     {
-      //
+      $paymentMethod = new PaymentMethod;
+      $paymentMethod->fill(
+        $request->all()
+      );
+      $paymentMethod->save();
+
+      return new PaymentMethodResource(
+        $paymentMethod
+      );
     }
     
     /**
@@ -42,7 +50,9 @@
      */
     public function show($id)
     {
-      //
+      return new PaymentMethodResource(
+        PaymentMethod::find($id)
+      );
     }
     
     /**
@@ -54,7 +64,17 @@
      */
     public function update(Request $request, $id)
     {
-      //
+      $paymentMethod = PaymentMethod::find($id);
+
+      $paymentMethod->fill(
+        $request->all()
+      );
+
+      $paymentMethod->save();
+
+      return new PaymentMethodResource(
+        $paymentMethod
+      );
     }
     
     /**
@@ -65,6 +85,6 @@
      */
     public function destroy($id)
     {
-      //
+      return PaymentMethod::destroy($id);
     }
   }

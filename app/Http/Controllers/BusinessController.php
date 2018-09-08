@@ -31,7 +31,17 @@
      */
     public function store(Request $request)
     {
-      //
+      $business = new Business;
+
+      $business->fill(
+        $request->all()
+      );
+
+      $business->save();
+
+      return new BusinessResource(
+        $business
+      );
     }
     
     /**
@@ -42,7 +52,9 @@
      */
     public function show($id)
     {
-      //
+      return new BusinessResource(
+        Business::find($id)
+      );
     }
     
     /**
@@ -54,7 +66,17 @@
      */
     public function update(Request $request, $id)
     {
-      //
+      $business = Business::find($id);
+
+      $business->fill(
+        $request->all()
+      );
+
+      $business->save();
+
+      return new BusinessResource(
+        $business
+      );
     }
     
     /**
@@ -65,6 +87,6 @@
      */
     public function destroy($id)
     {
-      //
+      return Business::destroy($id);
     }
   }

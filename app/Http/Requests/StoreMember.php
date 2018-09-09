@@ -31,7 +31,7 @@
         'date_of_birth' => 'required|date|before:today',
         'phone_number' => 'required|numeric',
         'email' => 'required|email',
-        'proposed_monthly_contribution' => 'required|numeric',
+        'proposed_monthly_deposit' => 'required|numeric',
         'kra_pin' => 'nullable',
         'marital_status_id' => 'nullable|integer'
       ];

@@ -38,7 +38,7 @@
         'gender' => 'nullable',
         'passport_photo' => 'nullable|url',
         'marital_status_id' => 'nullable',
-        'proposed_monthly_contribution' => 'nullable|numeric'
+        'proposed_monthly_deposit' => 'nullable|numeric'
       ];
     }
   }

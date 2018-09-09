@@ -24,7 +24,7 @@
       'passport_photo' => $faker->imageUrl($width = 200, $height = 200),
       'marital_status_id' => $faker->randomElement($marital_statuses),
       
-      'proposed_monthly_contribution' => $faker->randomFloat(2, 0, 999999),
+      'proposed_monthly_deposit' => $faker->randomFloat(2, 0, 999999),
     
     ];
     

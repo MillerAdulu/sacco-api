@@ -37,7 +37,7 @@
           $this->marital_status_id
         )),
         
-        'proposedMonthlyContribution' => $this->proposed_monthly_contribution,
+        'proposedMonthlyDeposit' => $this->proposed_monthly_deposit,
         
         'createdAt' => (string) $this->created_at,
         'updatedAt' => (string) $this->updated_at

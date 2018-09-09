@@ -16,9 +16,9 @@
     public function toArray($request)
     {
       return [
-        'type' => 'MemberContributionTotal',
+        'type' => 'MemberDepositTotal',
         'member' => new MemberResource(MemberDeposit::where('member_id', $this->member_id)->first()->member),
-        'contributionTotal' => $this->total
+        'depositTotal' => $this->total
       ];;
     }
   }

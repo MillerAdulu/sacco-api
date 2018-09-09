@@ -22,7 +22,7 @@
       'gender',
       'passport_photo',
       'marital_status_id',
-      'proposed_monthly_contribution'
+      'proposed_monthly_deposit'
     ];
     
     public function marital_status () {
@@ -63,7 +63,7 @@
       
     }
     
-    public function member_contributions() {
+    public function member_deposits() {
       
       return $this->hasMany(
         MemberDeposit::class,

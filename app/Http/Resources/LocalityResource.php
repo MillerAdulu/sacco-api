@@ -19,7 +19,7 @@
         'type' => 'Locality',
         'localityId' => $this->locality_id,
         
-        'constituencyId' => new ConstituencyResource(
+        'constituency' => new ConstituencyResource(
           Constituency::find($this->constituency_id)
         ),
         'localityName' => $this->locality_name,

@@ -177,9 +177,13 @@
       $resetPass->password = Hash::make($newUserPassword);
       $resetPass->save();
       
-      $resetPass->password = $newUserPassword;
+      $member = Member::where('email', $member)
+      ->orWhere('phone_number', $member)
+      ->first();
+
+      $member->password = $newUserPassword;
       
-      Mail::to($resetPass->email)->send(new AccountDetailsMail($resetPass));
+      Mail::to($resetPass->email)->send(new AccountDetailsMail($member));
       
       return new UserResource(
         $resetPass

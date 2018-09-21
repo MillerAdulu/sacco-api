@@ -162,14 +162,14 @@
       );
     }
     
-    public function resetPassword($member) {
+    public function resetPassword(Request $request) {
+      $member = $request->username;
       $resetPass =  User::where('email', $member)
         ->orWhere('phone_number', $member)
         ->first();
       
       if(!$resetPass) {
-        return response()
-          ->json(['Error' => 'This user does not exist']);
+        return null;
       }
       
       $newUserPassword = mt_rand(0, 9999);

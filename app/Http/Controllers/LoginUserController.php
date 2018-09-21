@@ -6,10 +6,6 @@
   use App\User;
   use Illuminate\Http\Request;
   use Illuminate\Support\Facades\Hash;
-
-  use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
-  use RuntimeException;
-
   
   class LoginUserController extends Controller
   {
@@ -27,8 +23,6 @@
     }
     
     public function checkusername(Request $request) {
-
-      Bugsnag::notifyException(new RuntimeException("Test error"));
       
       $user = User::where('email', $request->username)
         ->orWhere('phone_number', $request->username)->first();

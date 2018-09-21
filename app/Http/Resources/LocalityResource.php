@@ -2,6 +2,7 @@
   
   namespace App\Http\Resources;
   
+  use App\Constituency;
   use Illuminate\Http\Resources\Json\JsonResource;
   
   class LocalityResource extends JsonResource
@@ -18,7 +19,9 @@
         'type' => 'Locality',
         'localityId' => $this->locality_id,
         
-        'constituencyId' => $this->constituency_id,
+        'constituencyId' => new ConstituencyResource(
+          Constituency::find($this->constituency_id)
+        ),
         'localityName' => $this->locality_name,
         
         'createdAt' => (string) $this->created_at,

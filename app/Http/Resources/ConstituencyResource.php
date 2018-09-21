@@ -2,6 +2,7 @@
   
   namespace App\Http\Resources;
   
+  use App\County;
   use Illuminate\Http\Resources\Json\JsonResource;
   
   class ConstituencyResource extends JsonResource
@@ -18,7 +19,9 @@
         'type' => 'Constituency',
         'constituencyId' => $this->constituency_id,
         
-        'countyId' => $this->county_id,
+        'county' => new CountyResource(
+          County::find($this->county_id)
+        ),
         'constituencyName' => $this->constituency_name,
         
         'createdAt' => (string) $this->created_at,

@@ -163,10 +163,8 @@
     }
     
     public function resetPassword(Request $request) {
-      $member = $request->username;
-      $resetPass =  User::where('email', $member)
-        ->orWhere('phone_number', $member)
-        ->first();
+      $member = $request->member_id;
+      $resetPass =  User::where('member_id', $member)->first();
       
       if(!$resetPass) {
         return null;
@@ -177,9 +175,7 @@
       $resetPass->password = Hash::make($newUserPassword);
       $resetPass->save();
       
-      $member = Member::where('email', $member)
-      ->orWhere('phone_number', $member)
-      ->first();
+      $member = Member::find($member);
 
       $member->password = $newUserPassword;
       

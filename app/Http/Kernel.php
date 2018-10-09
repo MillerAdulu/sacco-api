@@ -41,7 +41,8 @@
       'api' => [
         'throttle:60,1',
         'bindings',
-        'jwt.auth'
+        'jwt.auth',
+        // 'auth:api',
       ],
     ];
     

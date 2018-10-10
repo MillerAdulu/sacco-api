@@ -26,7 +26,7 @@
         'member' => new MemberResource(
           Member::find($this->member_id)
         ),
-        'businessId' => new BusinessResource(
+        'business' => new BusinessResource(
           Business::find($this->business_id)
         ),
         

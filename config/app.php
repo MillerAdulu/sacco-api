@@ -162,7 +162,9 @@ return [
 
         Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
 
-        'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+
+        Laravel\Passport\PassportServiceProvider::class,
 
 
     ],

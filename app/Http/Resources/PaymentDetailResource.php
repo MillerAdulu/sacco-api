@@ -4,6 +4,7 @@
   
   use Illuminate\Http\Resources\Json\JsonResource;
   use App\PaymentMethod;
+  use App\Member;
   
   class PaymentDetailResource extends JsonResource
   {
@@ -14,22 +15,16 @@
      * @return array
      */
     public function toArray($request)
-    {
-      $payment_methods = PaymentMethod::all();
-      $payment_method_name = '';
-      
-      foreach($payment_methods as $payment_method) {
-        if($this->payment_method_id == $payment_method->payment_method_id) {
-          $payment_method_name = $payment_method->payment_method_name;
-        }
-      }
-      
+    {     
       return [
         'type' => 'PaymentDetails',
         'paymentDetailsId' => $this->payment_details_id,
-        'paymentMethodId' => $this->payment_method_id,
-        'paymentMethodName' => $payment_method_name,
-        'memberId' => $this->member_id,
+        'paymentMethod' => new PaymentMethodResource(
+          PaymentMethod::find($this->payment_method_id)
+        ),
+        'member' => new MemberResource(
+          Member::find($this->member_id)
+        ),
         'businessId' => $this->business_id,
         
         'bankName' => $this->bank_name,

@@ -5,6 +5,7 @@
   use Illuminate\Http\Resources\Json\JsonResource;
   use App\PaymentMethod;
   use App\Member;
+  use App\Business;
   
   class PaymentDetailResource extends JsonResource
   {
@@ -25,7 +26,9 @@
         'member' => new MemberResource(
           Member::find($this->member_id)
         ),
-        'businessId' => $this->business_id,
+        'businessId' => new BusinessResource(
+          Business::find($this->business_id)
+        ),
         
         'bankName' => $this->bank_name,
         'bankAccountNumber' => $this->bank_account_number,

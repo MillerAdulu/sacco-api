@@ -3,8 +3,6 @@
   namespace App\Http\Resources;
   
   use Illuminate\Http\Resources\Json\JsonResource;
-  use JWTFactory;
-  use JWTAuth;
   use App\Member;
 
   class UserResource extends JsonResource
@@ -26,7 +24,7 @@
         'email' => $this->email,
         'phoneNumber' => $this->phone_number,
         'accessLevel' => $this->access_level,
-        'token' => JWTAuth::fromUser($this),
+        'token' => $this->createToken('LaraPassport')->accessToken,
         'member' => $member
       ];
     }

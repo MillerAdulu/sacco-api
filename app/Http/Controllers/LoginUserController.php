@@ -19,16 +19,9 @@
 
       if(Auth::attempt(['email' => $user['email'], 'password' => $request->password])) {
         $authUser = Auth::user();
-        $success['token'] = $user->createToken('LaraPassport')->accessToken;
-        return response()->json([
-          'status' => 'success',
-          'data' => $success
-        ]);
-      } else {
-        return response()->json([
-          'status' => 'error',
-          'data' => 'Unauthorized Access'
-        ]); 
+        return new UserResource(
+          $authUser
+        );
       }
       return null;
     }

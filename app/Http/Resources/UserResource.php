@@ -25,7 +25,9 @@
         'phoneNumber' => $this->phone_number,
         'accessLevel' => $this->access_level,
         'token' => $this->createToken('LaraPassport')->accessToken,
-        'member' => $member
+        'member' => $member,
+        'createdAt' => (string) $this->created_at,
+        'updatedAt' => (string) $this->updated_at
       ];
     }
   }

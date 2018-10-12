@@ -1,13 +1,14 @@
 <?php
   
   namespace App\Http\Resources;
-  
+
+  use Illuminate\Http\Resources\Json\JsonResource;  
   use App\AddressDetail;
   use App\County;
   use App\Constituency;
   use App\Locality;
   use App\PostOffice;
-  use Illuminate\Http\Resources\Json\JsonResource;
+  use App\Member;
   
   class AddressDetailResource extends JsonResource
   {
@@ -23,7 +24,9 @@
         'type' => 'AddressDetails',
         'addressDetailId' => $this->address_detail_id,
         
-        'memberId' => $this->member_id,
+        'member' => new MemberResource(
+          Member::find($this->member_id)
+        ),
         'businessId' => $this->business_id,
         'employerId' => $this->employer_id,
         

@@ -99,7 +99,7 @@ return [
         | API on completion or failure of a push transaction.
         |
         */
-        'callback' => 'https://sedcapi.herokuapp.com/saccoapp/stkdeposit',
+        'callback' => 'https://sedcapi.appspot.com/saccoapp/stkdeposit',
         
         /*
         |--------------------------------------------------------------------------
@@ -135,7 +135,7 @@ return [
     */
 
     'c2b' => [
-        'confirmation_url' => env('MPESA_CALLBACK'),
+        'confirmation_url' => 'https://sedcapi.appspot.com/saccoapp/adddeposit',
 
         'validation_url' => '',
 

@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": "^7.1.3",
+        "ext-gd": "*",
         "barryvdh/laravel-cors": "^0.11.0",
         "bugsnag/bugsnag-laravel": "^2.0",
         "doctrine/dbal": "^2.7",
@@ -18,8 +19,7 @@
         "laravel/passport": "^7.0",
         "laravel/tinker": "^1.0",
         "maatwebsite/excel": "^3.0",
-        "tymon/jwt-auth": "^0.5.12",
-        "ext-gd": "*"
+        "tymon/jwt-auth": "^0.5.12"
     },
     "require-dev": {
         "beyondcode/laravel-er-diagram-generator": "^0.2.2",

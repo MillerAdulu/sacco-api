@@ -141,7 +141,7 @@ return [
 
         'on_timeout' => 'Completed',
 
-        'short_code' => '600256',
+        'short_code' => '600782',
 
         'test_phone_number' => '254708374149',
 

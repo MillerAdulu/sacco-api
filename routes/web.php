@@ -18,3 +18,7 @@
     Route::post('/adddeposit', 'MemberDepositController@addMpesaDeposit');
     Route::post('/stkdeposit', 'MemberDepositController@stkMpesaDeposit');
   });
+
+  Auth::routes();
+
+  Route::get('/home', 'HomeController@index')->name('home');

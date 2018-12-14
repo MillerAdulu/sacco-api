@@ -1,7 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
-# /storage/*.key
+/storage/*.key
 /vendor
 /.idea
 /.vscode
@@ -14,6 +14,7 @@ yarn-error.log
 graph.png
 config/erd-generator.php
 
-# resources/
+resources/js/components/authentication
 
-app.yaml
+# app.yaml
+

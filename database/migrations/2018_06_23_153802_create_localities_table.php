@@ -17,7 +17,7 @@
         
         $table->increments('locality_id');
         
-        $table->integer('constituency_id');
+        $table->unsignedInteger('constituency_id');
         $table->string('locality_name', 30);
         
         $table->timestamps();

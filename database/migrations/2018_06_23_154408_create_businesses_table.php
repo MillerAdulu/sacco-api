@@ -16,10 +16,10 @@
       Schema::create('businesses', function (Blueprint $table) {
         
         $table->increments('business_id');
-        $table->integer('member_id')->nullable();
+        $table->unsignedInteger('member_id')->nullable();
         
         $table->string('business_name', 100);
-        $table->integer('business_nature_id');
+        $table->unsignedInteger('business_nature_id');
         $table->decimal('approximate_monthly_income', 8, 2)->nullable();
         
         $table->timestamps();

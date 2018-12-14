@@ -18,7 +18,7 @@
         $table->increments('employer_id');
         
         $table->string('employer_name', 100);
-        $table->integer('business_nature_id');
+        $table->unsignedInteger('business_nature_id');
         
         $table->timestamps();
         

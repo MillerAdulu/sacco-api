@@ -30,7 +30,7 @@
         
         $table->boolean('gender')->nullable();
         $table->text('passport_photo')->nullable();
-        $table->integer('marital_status_id')->nullable();
+        $table->unsignedInteger('marital_status_id')->nullable();
         
         $table->decimal('proposed_monthly_deposit', 8, 2);
         

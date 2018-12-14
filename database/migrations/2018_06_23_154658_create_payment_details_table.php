@@ -17,9 +17,9 @@
         
         $table->increments('payment_details_id');
         
-        $table->integer('payment_method_id');
-        $table->integer('member_id')->nullable();
-        $table->integer('business_id')->nullable();
+        $table->unsignedInteger('payment_method_id');
+        $table->unsignedInteger('member_id')->nullable();
+        $table->unsignedInteger('business_id')->nullable();
         
         $table->string('bank_name', 50)->nullable();
         $table->string('bank_account_number', 60)->nullable();

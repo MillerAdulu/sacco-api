@@ -16,8 +16,8 @@
       Schema::create('member_deposits', function (Blueprint $table) {
         $table->increments('member_deposit_id');
         
-        $table->integer('member_id');
-        $table->integer('payment_method_id');
+        $table->unsignedInteger('member_id');
+        $table->unsignedInteger('payment_method_id');
         $table->decimal('deposit_amount');
         $table->string('comment')->nullable();
         

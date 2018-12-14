@@ -16,13 +16,13 @@
       Schema::create('member_loans', function (Blueprint $table) {
         $table->increments('member_loan_id');
         
-        $table->integer('member_id');
-        $table->smallInteger('loan_type_id');
+        $table->unsignedInteger('member_id');
+        $table->unsignedInteger('loan_type_id');
         $table->string('loan_purpose');
         $table->decimal('loan_amount');
         $table->integer('repayment_period');
-        $table->smallInteger('loan_repayment_status_id');
-        $table->smallInteger('loan_issuing_status_id');
+        $table->unsignedInteger('loan_repayment_status_id');
+        $table->unsignedInteger('loan_issuing_status_id');
         
         $table->timestamps();
         

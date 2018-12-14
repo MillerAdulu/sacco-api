@@ -17,9 +17,9 @@
         
         $table->increments('employment_details_id');
         
-        $table->integer('employer_id');
-        $table->integer('member_id');
-        $table->integer('job_title_id');
+        $table->unsignedInteger('employer_id');
+        $table->unsignedInteger('member_id');
+        $table->unsignedInteger('job_title_id');
         $table->string('work_station');
         $table->date('commencement_date');
         $table->decimal('salary', 8, 2);

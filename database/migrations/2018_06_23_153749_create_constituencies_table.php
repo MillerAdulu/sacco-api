@@ -17,7 +17,7 @@
         
         $table->increments('constituency_id');
         
-        $table->integer('county_id');
+        $table->unsignedInteger('county_id');
         $table->string('constituency_name', 20);
         
         $table->timestamps();

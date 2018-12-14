@@ -20,15 +20,15 @@
         $table->string('first_name', 30);
         $table->string('last_name', 30);
         $table->string('other_name')->nullable();
-        $table->integer('member_id');
-        $table->integer('relationship_id');
+        $table->unsignedInteger('member_id');
+        $table->unsignedInteger('relationship_id');
         $table->string('phone_number');
         $table->string('email')->nulllable();
         
         $table->timestamps();
         
-        $table->foreign('relationship_id')->references('relationship_id')->on('relationships');
         $table->foreign('member_id')->references('member_id')->on('members');
+        $table->foreign('relationship_id')->references('relationship_id')->on('relationships');
       });
     }
     

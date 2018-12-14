@@ -86,3 +86,9 @@
     Route::post('/accounts/reset', 'MemberController@resetPassword');
     Route::post('/account/uploadpassportphoto', 'MemberController@uploadPassportPhoto');
   });
+
+  Route::get('/user', function() {
+    return new App\Http\Resources\UserResource(request()->user());
+  });
+
+  Route::get('/logout', 'Auth\LoginController@logout');

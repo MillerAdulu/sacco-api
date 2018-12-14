@@ -23,7 +23,6 @@
         'email' => $this->email,
         'phoneNumber' => $this->phone_number,
         'accessLevel' => $this->access_level,
-        'token' => $this->createToken('SEDCApp')->accessToken,
         'member' => Member::find($this->member_id) ? new MemberResource(Member::find($this->member_id)) : null,
         'createdAt' => (string) $this->created_at,
         'updatedAt' => (string) $this->updated_at

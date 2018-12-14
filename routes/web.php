@@ -13,8 +13,8 @@
   
   Route::prefix('saccoapp')->group(function() {
     Route::post('/register', 'RegisterUserController@register');
-    Route::post('/login', 'LoginUserController@login');
-    Route::post('/checkusername', 'LoginUserController@checkusername');
+    // Route::post('/login', 'LoginUserController@login');
+    // Route::post('/checkusername', 'LoginUserController@checkusername');
     Route::post('/adddeposit', 'MemberDepositController@addMpesaDeposit');
     Route::post('/stkdeposit', 'MemberDepositController@stkMpesaDeposit');
   });

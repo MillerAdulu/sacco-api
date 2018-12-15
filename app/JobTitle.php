@@ -7,6 +7,8 @@
   class JobTitle extends Model
   {
     protected $primaryKey = 'job_title_id';
+
+    protected $fillable = ['job_title'];
     
     public function employment_details () {
       

@@ -7,7 +7,9 @@
   class MemberLoan extends Model
   {
     protected $primaryKey = 'member_loan_id';
-    
+
+    protected $fillable = ['member_id', 'loan_type_id', 'loan_purpose', 'loan_amount', 'repayment_period', 'loan_repayment_status_id', 'loan_issuing_status_id'];
+
     public function member() {
       return $this->belongsTo(
         Member::class,

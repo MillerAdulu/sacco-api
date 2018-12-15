@@ -7,6 +7,8 @@
   class EmploymentDetail extends Model
   {
     protected $primaryKey = 'employment_details_id';
+
+    protected $fillable = ['employer_id', 'member_id', 'job_title_id', 'work_station', 'commencement_date', 'salary', 'payroll_number', 'termination_date'];
     
     public function employers () {
       

@@ -7,6 +7,8 @@
   class MaritalStatus extends Model
   {
     protected $primaryKey = 'marital_status_id';
+
+    protected $fillable = ['marital_status'];
     
     public function member() {
       

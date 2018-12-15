@@ -7,6 +7,8 @@
   class PaymentMethod extends Model
   {
     protected $primaryKey = 'payment_method_id';
+
+    protected $fillable = ['payment_method_name'];
     
     public function payment_detail () {
       

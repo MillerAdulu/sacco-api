@@ -7,6 +7,8 @@
   class Employer extends Model
   {
     protected $primaryKey = 'employer_id';
+
+    protected $fillable = ['employer_name', 'business_nature_id'];
     
     public function address_details () {
       

@@ -7,6 +7,8 @@
   class County extends Model
   {
     protected $primaryKey = 'county_id';
+
+    protected $fillable = ['county_code', 'county_name'];
     
     public function constituencies () {
       

@@ -7,4 +7,6 @@
   class LoanRepaymentStatus extends Model
   {
     protected $primaryKey = 'loan_repayment_status_id';
+
+    protected $fillable = ['loan_repayment_status'];
   }

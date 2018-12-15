@@ -7,6 +7,8 @@
   class Locality extends Model
   {
     protected $primaryKey = 'locality_id';
+
+    protected $fillable = ['constituency_id', 'locality_name'];
     
     public function constituency () {
       

@@ -7,6 +7,8 @@
   class Business extends Model
   {
     protected $primaryKey = 'business_id';
+
+    protected $fillable = ['member_id', 'business_name', 'business_nature_id', 'approximate_monthly_income'];
     
     public function members () {
       

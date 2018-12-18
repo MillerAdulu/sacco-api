@@ -106,16 +106,10 @@
         'passport_photo' => 'required|mimes:jpeg,bmp,jpg,png|between:1, 6000',
       ]);
 
-      $passport_photo = $request->file('passport_photo')->getRealPath();
-
-      Cloudder::upload($passport_photo, null);
-
-      list($width, $height) = getimagesize($passport_photo);
-
-      $image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height]);
+      $passport_photo_path = $request->file('passport_photo')->store('passport');
 
       $member = Member::findOrFail($request->member_id);
-      $member->passport_photo = $image_url;
+      $member->passport_photo = $passport_photo_path;
       $member->save();
 
       return new MemberResource(

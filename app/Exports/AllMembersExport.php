@@ -3,23 +3,23 @@
 namespace App\Exports;
 
 use App\Member;
-use Maatwebsite\Excel\Concerns\FromCollection;
+
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
 
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Illuminate\Contracts\Support\Responsable;
 
-class AllMembersExport implements FromCollection, Responsable, ShouldAutoSize
+class AllMembersExport implements FromView, Responsable, ShouldAutoSize
 {
     use Exportable;
 
     private $fileName = 'allmembers.xlsx';
 
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
-    {
-        return Member::all();
+    public function view(): View {
+        return view('exports.members.members', [
+            'members' => Member::all()
+        ]);
     }
 }

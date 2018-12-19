@@ -92,3 +92,7 @@
   });
 
   Route::get('/logout', 'Auth\LoginController@logout');
+
+  Route::prefix('/reports')->group(function() {
+    Route::get('/allmembers', 'ReportsGeneratorController@allMembers');
+  });

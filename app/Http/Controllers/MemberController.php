@@ -2,7 +2,6 @@
   
   namespace App\Http\Controllers;
   
-  use JD\Cloudder\Facades\Cloudder;
   use Illuminate\Support\Facades\Mail;
   use Illuminate\Support\Facades\Hash;
   use App\Http\Resources\MemberCollection;

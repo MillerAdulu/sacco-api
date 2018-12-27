@@ -81,10 +81,10 @@
     Route::get('/memberloans', 'DashboardController@memberLoans');
   });
   
-  Route::prefix('/members')->group(function() {
-    Route::post('/accounts/register/{member}', 'MemberController@registerAccount');
-    Route::post('/accounts/reset', 'MemberController@resetPassword');
-    Route::post('/account/uploadpassportphoto', 'MemberController@uploadPassportPhoto');
+  Route::prefix('/members/accounts')->group(function() {
+    Route::post('/register/{member}', 'MemberController@registerAccount');
+    Route::post('/reset', 'MemberController@resetPassword');
+    Route::post('/uploadpassportphoto', 'MemberController@uploadPassportPhoto');
   });
 
   Route::get('/user', function() {

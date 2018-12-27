@@ -105,7 +105,7 @@
         'passport_photo' => 'required|mimes:jpeg,bmp,jpg,png|between:1, 6000',
       ]);
 
-      $passport_photo_path = $request->file('passport_photo')->store('passport');
+      $passport_photo_path = $request->file('passport_photo')->store('memberpassportphotos');
 
       $member = Member::findOrFail($request->member_id);
       $member->passport_photo = $passport_photo_path;

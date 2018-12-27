@@ -32,7 +32,7 @@
         'kraCertificate' => $this->kra_certificate,
         
         'gender' => $this->gender,
-        'passportPhoto' => $this->passport_photo,
+        'passportPhoto' => 'https://storage.googleapis.com/apisedc.appspot.com/' . $this->passport_photo,
         'maritalStatusInfo' => new MaritalStatusResource(MaritalStatus::find(
           $this->marital_status_id
         )),

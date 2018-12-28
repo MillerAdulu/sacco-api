@@ -26,6 +26,7 @@
       
       return [
         'type' => 'Nominee',
+        'nomineeId' => $this->nominee_id,
         'identificationNumber' => $this->identification_number,
         'firstName' => $this->first_name,
         'lastName' => $this->last_name,

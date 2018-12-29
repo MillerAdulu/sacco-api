@@ -19,7 +19,7 @@ class MemberShareResource extends JsonResource
     {
         return [
             'type' => 'MemberShare',
-            'memberShareDepositId' => $this->member_deposit_id,
+            'memberShareDepositId' => $this->member_share_deposit_id,
             'member' => new MemberResource(
               Member::find($this->member_id)
             ),

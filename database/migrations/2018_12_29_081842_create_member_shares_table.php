@@ -14,7 +14,7 @@ class CreateMemberSharesTable extends Migration
     public function up()
     {
         Schema::create('member_shares', function (Blueprint $table) {
-            $table->increments('member_share_id');
+            $table->increments('member_share_deposit_id');
             
             $table->unsignedInteger('member_id');
             $table->unsignedInteger('payment_method_id');

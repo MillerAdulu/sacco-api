@@ -2,7 +2,6 @@
   
   namespace App\Http\Resources;
   
-  use App\MemberDeposit;
   use App\PaymentMethod;
   use App\Member;
   use Illuminate\Http\Resources\Json\JsonResource;

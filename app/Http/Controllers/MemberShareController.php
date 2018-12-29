@@ -101,7 +101,7 @@ class MemberShareController extends Controller
     {
         return new MemberShareCollection(
             MemberShareTotalResource::collection(
-            MemberDeposit::select('member_id', \DB::raw('SUM(deposit_amount) AS total'))->groupBy('member_id')->get()
+            MemberShare::select('member_id', \DB::raw('SUM(deposit_amount) AS total'))->groupBy('member_id')->get()
             )
         );
     }

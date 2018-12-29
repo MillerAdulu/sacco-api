@@ -19,6 +19,6 @@
         'type' => 'MemberDepositTotal',
         'member' => new MemberResource(MemberDeposit::where('member_id', $this->member_id)->first()->member),
         'depositTotal' => $this->total
-      ];;
+      ];
     }
   }

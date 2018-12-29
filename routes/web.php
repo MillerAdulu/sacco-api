@@ -17,6 +17,9 @@
     // Route::post('/checkusername', 'LoginUserController@checkusername');
     Route::post('/adddeposit', 'MemberDepositController@addMpesaDeposit');
     Route::post('/stkdeposit', 'MemberDepositController@stkMpesaDeposit');
+
+    Route::post('/shareadddeposit', 'MemberShareController@addMpesaDeposit');
+    Route::post('/sharestkdeposit', 'MemberShareController@stkMpesaDeposit');
   });
 
   Auth::routes();
